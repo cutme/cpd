@@ -1,0 +1,25 @@
+$c-black-01:   #484953;
+
+$c-blue:	   #0C8CD0;
+
+$c-gray-01:    #707070;
+
+$c-green:	   #68991D;
+
+$c-navy:	   #2B448C;
+
+$c-orange:	   #F18614;
+
+$c-purple:     #9A0067;
+
+$c-red:		   #D10022;
+
+$c-yellow:	   #D8C000;
+
+
+
+$c-primary: $c-red;
+
+:root {
+  --primary-color: #{$c-primary};
+}

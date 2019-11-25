@@ -1,0 +1,165 @@
+html:not(.ie) {
+    .anim {
+    
+        &--delay1 {
+            transition-delay: 150ms;
+        }
+        
+        &--delay2 {
+            transition-delay: 250ms;
+        }
+        
+        &--delay3 {
+            transition-delay: 350ms;
+        }
+        
+        &--delay4 {
+            transition-delay: 450ms;
+        }
+
+        transition: all 600ms ease-out;
+        opacity: 0;
+        
+        
+        
+        &--left {
+            transform: translate3d(-50px, 0, 0);
+        }
+        
+        &--right {
+            transform: translate3d(50px, 0, 0);
+        }
+        
+        &--scale {
+            transform: scale3d(0, 1, 1);
+        }
+        
+        &--up {
+            transform: translate3d(0, 50px, 0);
+        }
+        
+        &--visible {
+            transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+            opacity: 1;
+        }
+    }
+    
+    hr.anim {
+        opacity: 1;
+        transition: all 1600ms ease-out;
+    }
+}
+
+
+.is-hidden {
+    display: none;
+}
+
+
+
+// Text Align
+
+.text-center {
+    text-align: center;
+}
+
+.color-primary {
+    color: var(--primary-color);
+}
+
+.u-cover {
+    transition: all 500ms ease-out;
+    opacity: 1;
+    
+    .is-loaded & {
+        opacity: 0;
+    }
+}
+
+
+
+
+
+// Background colors
+
+.bg-blue {
+	background-color: $c-blue ;
+}
+
+.bg-green {
+	background-color: $c-green;
+}
+
+.bg-navy {
+	background-color: $c-navy;
+}
+
+.bg-orange {
+	background-color: $c-orange;
+}
+
+.bg-purple {
+	background-color: $c-purple;
+}
+
+.bg-red {
+	background-color: $c-red;
+}
+
+.bg-yellow {
+	background-color: $c-yellow;
+}
+
+
+
+
+.bg-blue, .bg-green, .bg-navy, .bg-purple, .bg-orange, .bg-red, .bg-yellow {
+	color: white;
+}
+
+a.bg-blue {
+	&:hover {
+		background-color: darken($c-blue, 5%);
+	}
+}
+
+a.bg-green {
+	&:hover {
+		background-color: darken($c-green, 5%);
+	}
+}
+
+a.bg-navy {
+	&:hover {
+		background-color: darken($c-navy, 5%);
+	}
+}
+
+a.bg-orange {
+	&:hover {
+		background-color: darken($c-orange, 5%);
+	}
+}
+
+a.bg-purple {
+	&:hover {
+		background-color: darken($c-purple, 5%);
+	}
+}
+
+a.bg-red {
+	&:hover {
+		background-color: darken($c-red, 5%);
+	}
+}
+
+a.bg-yellow {
+	&:hover {
+		background-color: darken($c-yellow, 5%);
+	}
+}
+
+
+.c-sidemenu {
+	
+}

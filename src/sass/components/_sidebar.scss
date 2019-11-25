@@ -1,0 +1,34 @@
+.c-sidebar {
+	@extend %rel;
+	
+	.o-logo {
+		margin-bottom: 40px;
+		
+		.negative {
+			display: none;
+		}
+	}
+	
+	.is-negative & {
+		.o-logo {
+			.normal {
+				display: none;
+			}
+			.negative {
+				display: block;
+			}
+		}
+		
+		.c-sidenav {
+			a {
+				color: black;
+			}
+			
+			li {
+				&:before {
+					color: black;
+				}
+			}
+		}
+	}
+}

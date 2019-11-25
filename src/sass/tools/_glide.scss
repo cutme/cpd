@@ -1,0 +1,61 @@
+.glide {    
+    &__slides,
+    &__track {
+        height: 100%;
+    }
+    
+    &__slide {
+        
+        &--active {
+            .c-homecarousel {
+            	&__text {
+	                .first,
+	                .second,
+	                .third {
+	                    transition: all 600ms ease-out;
+	                }
+	                               
+	                .second {
+	                    transition-delay: 400ms;
+	                }
+	                
+	                .third {
+	                    transition-delay: 600ms;
+	                }
+	            
+	                .first,
+	                .second, .third {
+	                    opacity: 1 !important;
+	                    transform: translate3d(0, 0, 0) !important;
+	                }
+	            }
+            }
+        }
+    }
+	
+	&__bullet {
+		width: 4px; height: 4px;
+		background-color: rgba(white, .4);
+		margin: 0 6px;
+		padding: 0;
+		cursor: pointer;
+		
+		&--active {
+			background-color: $c-primary;
+		}
+	}
+	
+	&__bullets {
+		&--black {
+			.glide {
+				&__bullet {
+					background-color: rgba(black, .5);
+			
+					&--active {
+						background-color: $c-primary;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,55 @@
+.c-blog {
+	overflow: hidden;
+	
+	img {
+    	transition: opacity 1s, transform 1s;
+    	backface-visibility: hidden;	
+	}
+	
+	.o-cols {
+		&__item {
+			max-width: 468px;
+			margin-bottom: 80px;
+
+			&:hover {
+				.desktop & {
+					color: $c-primary;
+					
+					.o-lead {
+						color: $c-primary;
+					}
+
+					img {
+						transform: scale3d(1.1, 1.1 ,1);
+					}
+				}
+			}
+		}
+	}
+	
+	.o-header {
+		@extend %flex;
+		@extend %flex-spacebetween;
+		@extend %flex-y;
+	}
+
+	.o-lead {
+		&--3 {
+			padding: 1.5em 0;
+		}
+		
+		&--6 {
+			padding-top: 2em;
+		}
+	}
+	
+	.glide {
+		&__bullets {
+			padding-right: 40px;
+		}
+	}
+	
+	.photo {
+		overflow: hidden;
+	}
+}

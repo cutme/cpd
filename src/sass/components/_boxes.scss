@@ -1,0 +1,18 @@
+.c-boxes {
+	.o-cols {
+		&__item {
+			padding: 40px;
+			text-align: center;
+			
+			&:hover {
+				.desktop & {
+					transform: translate3d(0, 5px, 0);
+				}
+			}
+		}
+	}
+
+	img {
+		margin: 0 auto 40px auto;
+	}
+}

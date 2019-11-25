@@ -1,0 +1,141 @@
+.c-sidenav {
+
+	.copy {
+		color: $c-red;
+
+		&:before {
+			color: $c-red;
+			content: "\e904";
+		}
+		
+		&:hover {
+			a {
+				color: $c-red;
+			}
+		}
+	}
+	
+	.finishing {
+		color: $c-green;
+
+		&:before {
+			color: $c-green;
+			content: "\e909";
+		}
+		
+		&:hover {
+			a {
+				color: $c-green;
+			}
+		}
+		
+	}
+	
+	.large-format {
+		color: $c-orange;
+		
+		&:before {
+			color: $c-orange;
+			content: "\e90b";
+		}
+		
+		&:hover {
+			a {
+				color: $c-orange;
+			}
+		}
+	}
+	
+	.print {
+		color: $c-yellow;
+		
+		&:before {
+			color: $c-yellow;
+			content: "\e90e";
+		}
+		
+		&:hover {
+			a {
+				color: $c-yellow;
+			}
+		}
+	}
+	
+	.promotion {
+		color: $c-blue;
+		
+		&:before {
+			color: $c-blue;
+			content: "\e910";
+		}
+		
+		&:hover {
+			a {
+				color: $c-blue;
+			}
+		}
+	}
+	
+	a {
+		font: {
+			size: rem(20);
+			weight: $bold;
+		}
+		
+		@media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
+			size: base(20);
+		}
+		
+		@media ( max-width: $desktop + px ) {
+			font-size: rem(14);
+		}
+	}
+	
+	li {
+		@extend %rel;
+		@extend %flex;
+		@extend %flex-y;
+		max-height: 100px;
+		min-height: 64px;
+		height: 100px;
+		height: base(100);
+		padding-left: grid(60, 260);
+		
+		@media ( min-width: $base + 1px ) {
+			padding-left: 60px;
+		}
+		
+		@media ( max-width: $desktop + px ) {
+			height: 64px;
+			padding-left: 40px;
+		}
+		
+		&:before {
+			@extend %abs;
+			@extend %abs-after;
+			@extend %abs-y;
+			left: 0;
+			font: {
+				family: $icomoon;
+				size: base(36);
+				weight: normal;
+			}
+			
+			@media ( max-width: $desktop + px ) {
+				font-size: rem(24);
+			}
+		}
+		
+		&.item-active {
+			a {
+				color: white !important;				
+			}
+			
+			&:before {
+				color: white !important;
+			}
+		}
+	}
+	
+	
+}

@@ -1,0 +1,19 @@
+.c-improve {
+	.o-cols {
+		&__item {
+			margin-bottom: 40px;
+		}
+	}
+	
+	.o-header {
+		@extend %flex;
+		@extend %flex-spacebetween;
+		@extend %flex-y;
+	}
+	
+	.glide {
+		&__bullets {
+			padding-right: 40px;
+		}
+	}
+}

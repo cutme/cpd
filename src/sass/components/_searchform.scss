@@ -1,0 +1,37 @@
+.c-searchform {
+	@extend %rel;
+	width: 360px;
+	margin: 0 auto 35px auto;
+	
+	
+    
+	
+	input[type=text] {
+		background-color: $c-primary;
+		border-bottom: 1px solid rgba(white, .3);
+		padding: 0;
+		font-size: rem(21);
+		font-weight: $bold;
+		color: white;
+	}
+	
+	button[type=submit] {
+		@extend %abs;
+		right: 0; bottom: 0;
+		width: 28px; height: 34px;
+		background-color: $c-primary;
+		font-size: rem(26);
+		opacity: .6;
+		
+		&:hover {
+			.desktop & {
+				opacity: 1;
+			}
+		}
+	}
+	
+	::-webkit-input-placeholder { font-weight: $bold; color: rgba(white, .48); }
+	:-moz-placeholder { font-weight: $bold; color: rgba(white, .48); }
+	::-moz-placeholder { font-weight: $bold; color: rgba(white, .48); }
+	:-ms-input-placeholder { font-weight: $bold; color: rgba(white, .48); }
+}

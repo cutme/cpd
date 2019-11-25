@@ -1,0 +1,42 @@
+.c-pages {
+
+	img {
+		margin-bottom: 40px;
+	}
+	
+	.icon-arrow-right {
+		margin-left: 8px;
+		font-size: rem(14);
+		
+		&:before {
+			@extend %anim;
+			display: inline-block;
+		}
+	}
+	
+	.o-cols {
+		.o-lead {
+			margin-bottom: 1em;
+		}
+		
+		&__item {
+			margin-bottom: 80px;
+
+			&:hover {
+				.desktop & {
+					color: $c-red;
+					
+					.o-lead {
+						color: $c-red;
+					}
+	
+					.icon-arrow-right {
+						&:before {
+							transform: translate3d(5px, 0, 0);
+						}
+					}
+				}
+			}
+		}
+	}
+}

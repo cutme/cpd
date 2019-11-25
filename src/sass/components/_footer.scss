@@ -1,0 +1,79 @@
+.c-footer {
+	background-color: black;
+	overflow: hidden;
+	color: white;
+	
+	a {
+		&:hover {
+			.desktop & {
+				color: $c-primary;
+			}
+		}
+	}
+
+	address {
+		opacity: .6;
+	}
+
+	&__content {
+		padding: 80px 0;
+	}
+	
+	&__nav {
+		ul {
+			@extend %flex;
+			@extend %flex-wrap;
+		}
+
+		li {
+			width: 50%;
+			margin-bottom: 1em;
+			
+			&:last-child {
+				margin: 0 0 0 auto;
+			}
+		}
+		
+		a {
+			font-size: rem(20);
+		}
+	}
+	
+	&__opening {
+		padding-left: 80px;
+	}
+	
+	.o-cols {
+		&__item {
+			&:first-of-type {
+				padding-left: 80px;
+			}
+		}
+	}
+
+	.o-header {
+		@extend %flex;
+		@extend %flex-spacebetween;
+		@extend %flex-y;
+		margin: 0 80px;
+		border-bottom: 1px solid rgba(white, .15);
+	}
+	
+	.o-lead {
+		color: white;
+		
+		&--4 {
+			margin-bottom: 2em;
+			padding-left: 80px;
+		}
+		
+		&--6 {
+			margin-bottom: 1em;
+			opacity: .4;
+		}
+	}
+	
+	.copyrights {
+		margin-bottom: 2em;
+	}
+}

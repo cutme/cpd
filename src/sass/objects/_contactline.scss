@@ -1,0 +1,20 @@
+.o-contactline {
+	@extend %flex;
+	
+	li {
+		padding-left: 60px;
+	}
+	
+	a {
+		font-size: rem(18);
+		font-weight: $bold;
+		text-shadow: 0 0 20px rgba(black, 1), 0 0 30px rgba(black, 1), 0 0 40px rgba(black, 1);
+		color: white;
+	}
+	
+	[class^="icon-"] {
+		margin-right: 15px;
+		vertical-align: middle;
+		font-size: rem(24);
+	}
+}

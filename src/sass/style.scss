@@ -1,0 +1,53 @@
+@import 'settings/colors.scss';
+@import 'settings/global.scss';
+
+@import 'tools/clear';
+@import 'tools/functions';
+@import 'tools/mixins';
+//@import 'tools/blazy';
+//@import 'tools/custom-select';
+@import 'tools/glide';
+//@import 'tools/glightbox';
+
+@import 'generic/reset';
+@import 'generic/box-sizing';
+@import 'generic/screen-reader';
+
+
+@import 'elements/extends';
+@import 'elements/fonts';
+@import 'elements/form';
+@import 'elements/media';
+@import 'elements/page';
+@import 'elements/typography';
+
+@import 'objects/article';
+@import 'objects/btn';
+@import 'objects/cols';
+@import 'objects/container';
+@import 'objects/contactline';
+@import 'objects/content';
+@import 'objects/hamburger';
+@import 'objects/header';
+@import 'objects/icons';
+@import 'objects/lead';
+@import 'objects/logo';
+@import 'objects/section';
+@import 'objects/wrap';
+
+@import 'components/blog';
+@import 'components/boxes';
+@import 'components/footer';
+@import 'components/homecarousel';
+@import 'components/improve';
+@import 'components/nav';
+@import 'components/pages';
+@import 'components/references';
+@import 'components/searchform';
+@import 'components/sidebar';
+@import 'components/sidenav';
+@import 'components/social';
+@import 'components/top';
+@import 'components/welcome';
+
+@import 'trumps/trumps';

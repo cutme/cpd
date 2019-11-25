@@ -1,0 +1,52 @@
+// Fonts
+
+$nunito:            'Nunito Sans', serif;
+$icomoon:           'icomoon';
+$text:		        $nunito;
+
+
+
+
+// Font weights
+
+$extralight:        200;
+$light:             300;
+$regular:           400;
+$medium:            500;
+$semibold:          600;
+$bold:              700;
+$extrabold:         800;
+$black:				900;
+
+
+$z-index: (
+    hamburger:      100,
+    header:         30,
+    homecarousel: 1,
+	top           : 40,
+	nav           : 50,
+	logo          : 60,
+	welcome       : 10
+);
+
+// Paths
+
+$path_img:          '../img';
+$path_fonts:        '../fonts';
+
+
+
+// Default
+
+$base-font-size:	18;
+$base:				1920;
+
+
+
+// RWD
+
+$desktop:              1280;
+$tablet:               1023;
+$tablet_portrait:       768;
+$smartphone:			640;
+$smartphone_portrait:	500;

@@ -1,0 +1,69 @@
+.o-hamburger {
+    @include z-index(hamburger);
+    @extend %anim;
+    @extend %flex;
+    @extend %flex-xy;
+    position: fixed;
+    right: 0; top: 0;
+    flex-shrink: 0;
+    width: 60px; height: 60px;
+    background-color: $c-red;
+	cursor: pointer;
+	
+	&:hover {
+		.desktop & {
+			background-color: darken($c-red, 5%);
+		}
+	}
+	
+	i {
+		@extend %rel;
+		width: 30px; height: 18px;
+		display: block;
+		border-top: 2px solid white;
+		
+		&:after, &:before {
+	        @extend %abs;
+	        @extend %abs-after;
+	        @extend %anim;
+	        width: 100%; 
+	        height: 2px;
+	        background-color: white;
+	    }
+	 
+	    &:after {
+		    right: 0;
+		    transform-origin: right;
+	        top: 100%;
+	        width: 12px;
+	    }
+	
+	    &:before {
+	        transform-origin: left;
+	        top: calc(50% - 1px);
+	    }
+	}
+
+    &:hover {
+        .desktop & {
+            border-color: white;
+        }
+    }
+
+    &.is-active {
+	    i {
+	        border-color: transparent !important;
+	
+	        &:after {
+		        width: 130%;
+	            transform: rotate(45deg) translate(4px,4px);
+	        }
+	        
+	        &:before {
+		        width: 130%;
+	            transform: rotate(-45deg) translate(-10px,11px);    
+	        }
+	    }
+    }
+}
+

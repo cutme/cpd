@@ -1,0 +1,72 @@
+.c-homecarousel {
+	height: 100%;
+
+	.glide {
+		height: 100%;
+		
+		&__slide {
+			@extend %flex;
+		    @extend %flex-y;
+			background-size: cover;
+		}
+	}
+    
+    &__text {
+	    max-width: 640px;
+	    padding: 0 0 0 80px;
+	    
+	    @media ( max-width: $base + px ) {
+		    width: base(640);
+	    }
+	    
+	    color: white;
+	    
+	    .first, .second {
+		    text-transform: uppercase;
+		    
+		    .glide & {
+                opacity: 0;
+                transform: translate3d(-50px, 0, 0);
+            }
+	    }
+	    
+	    .first {
+		    line-height: 1.0em;
+		    font: {
+			    size: rem(80);
+			    weight: $black;
+			}
+			
+			@media ( min-width: $desktop + px ) and ( max-width: $base + px ) {
+				font-size: base(80);
+			}
+	    }
+
+	    .second {
+		    margin-bottom: 1em;
+		    line-height: 1.25em;
+		    font: {
+			    size: rem(53);
+			    weight: $semibold;
+			}
+			
+			@media ( min-width: $desktop + px ) and ( max-width: $base + px ) {
+				font-size: base(53);
+			}
+	    }
+	    
+	    .third {
+		    line-height: 2.35em;
+			font-weight: $bold;
+			
+			@media ( min-width: $desktop + px ) and ( max-width: $base + px ) {
+				font-size: base(20);
+			}
+			
+			.glide & {
+                opacity: 0;
+                transform: translate3d(0, 50px, 0);
+            }
+	    }
+    }
+}

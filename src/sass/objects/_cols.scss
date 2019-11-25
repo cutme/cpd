@@ -1,0 +1,44 @@
+.o-cols {
+	width: 100%;
+    
+    @media ( min-width: $tablet + 1px ) {
+    	display: flex;
+    }
+
+    &__item {
+        @extend %rel;
+        display: block;
+        margin-bottom: 80px;
+    }
+    
+    &--3, 
+    &--4 {
+	    @extend %flex-wrap;
+	    width: calc(100% + 40px);
+	    margin: 0 -20px;
+	    
+	    .o-cols {
+		    &__item {
+			    margin: 0 20px 80px 20px;
+		    }
+	    }
+    }
+
+    
+    &--3 {	    
+	    .o-cols {
+		    &__item {
+			    width: calc((100% - 120px) / 3);
+		    }
+	    }
+    }
+    
+    &--4 {	    
+	    .o-cols {
+		    &__item {
+			    width: calc((100% - 160px) / 4);
+		    }
+	    }
+    }   
+}
+

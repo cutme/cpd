@@ -1,0 +1,26 @@
+.c-references {
+	background: {
+		image: url(../img/photos/references.jpg);
+		repeat: no-repeat;
+		size: cover;
+	}
+	padding: 0 80px 60px 80px;
+	overflow: hidden;
+	color: white;	
+	
+	.o-lead {
+		color: white;
+	}
+	
+	.author {
+		padding-top: 1.5em;
+		font-weight: $bold;
+		color: $c-red;
+	}
+	
+	.glide {
+		&__bullets {
+			text-align: center;
+		}
+	}
+}
