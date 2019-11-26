@@ -6,12 +6,28 @@
 		
 		.negative {
 			display: none;
+		}		
+		
+		.on-black {
+			display: none;
+
+			.c-welcome & {
+				display: block;
+			}
+		}
+		
+		.on-white {
+			.c-welcome & {
+				display: none;
+			}
 		}
 	}
 	
 	.is-negative & {
 		.o-logo {
-			.normal {
+			.normal,
+			.on-black,
+			.on-white {
 				display: none;
 			}
 			.negative {
