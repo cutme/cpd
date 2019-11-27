@@ -6,10 +6,18 @@
 	}
 	
 	a {
-		font-size: rem(18);
-		font-weight: $bold;
+		font: {
+			size: rem(18);
+			weight: $bold;
+		}
 		text-shadow: 0 0 20px rgba(black, 1), 0 0 30px rgba(black, 1), 0 0 40px rgba(black, 1);
 		color: white;
+		
+		&:hover {
+			.desktop & {
+				color: $c-red;
+			}
+		}
 	}
 	
 	[class^="icon-"] {

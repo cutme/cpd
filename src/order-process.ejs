@@ -3,21 +3,28 @@
 
 	<main class="o-container">
 		
-		<% include ./src/includes/welcome %>
+		<section class="c-welcome" id="welcome">
+			<div class="o-container__left js-leftColumn">
+				<% include ./src/includes/sidebar %>
+			</div>
+		
+			<div class="o-container__right is-white">
+				<% include ./src/includes/process %>
+			</div>
+		</section>
 
 		<div class="o-container__left o-container__left--floating js-leftColumn">
 			<% include ./src/includes/sidebar %>
 		</div>
 		
 		<div class="o-container__right">
-			<% include ./src/includes/improve %>
 			<% include ./src/includes/pages %>
 			<% include ./src/includes/references %>
 			<% include ./src/includes/blog %>
 			<% include ./src/includes/footer %>
-		</div>		
+		</div>
 	</main>
-	
+
 	<% include ./src/includes/sidemenu %>
 	<% include ./src/includes/nav %>
 

@@ -1,0 +1,201 @@
+.c-process {
+	max-width: 1480px;	
+
+	dl {
+		@extend %flex;
+		@extend %flex-xy;
+		@extend %rel;
+		height: 245px;
+		color: white;
+	}
+
+	dt {
+		@extend %flex;
+		@extend %flex-xy;
+		@extend %rel;
+		width: grid(468, 1480);
+		height: 100%;
+		
+		&:after {
+			@extend %abs;
+			@extend %abs-after;
+			@extend %abs-x;
+			bottom: -18px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 18px 15px 0 15px;
+		}
+	}
+	
+	dd {
+		@extend %flex;
+		@extend %flex-y;
+		flex: 1;
+		background-size: cover;
+		height: 100%;
+		padding: 70px;
+		
+		@media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
+			padding: base(70);
+		}
+		
+		@media ( max-width: $desktop + px ) {
+			padding: 40px;
+		}
+		
+		p {
+			font-weight: $bold;
+		}
+	}
+	
+	[class^="icon-"] {
+		margin-right: 40px;
+		font-size: rem(50);
+	}
+	
+	.o-lead {
+		&--1 {
+			color: black;
+		}
+
+		&--3 {
+			text-transform: none;
+		}
+	}
+
+	&__title {
+		padding: 140px 80px;
+		
+		@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+			padding: base(140) base(80);
+		}
+	
+		@media ( max-width: $tablet + px ) {
+			padding: 60px;
+		}
+	}
+	
+	
+	.amendments {
+		z-index: 7;	
+		
+		dd {
+			background-image: url($path_img + '/photos/order-process/amendments.jpg');
+		}
+		
+		dt {
+			background-color: $c-red;
+			
+			&:after {
+				border-color: $c-red transparent transparent transparent;
+			}
+		}
+	}
+	
+	.approval {
+		z-index: 6;
+		
+		dd {
+			background-image: url($path_img + '/photos/order-process/approval.jpg');
+		}
+		
+		dt {
+			background-color: $c-purple;
+			
+			&:after {
+				border-color: $c-purple transparent transparent transparent;
+			}
+		}
+	}
+	
+	.delivery {			
+		dd {
+			background-image: url($path_img + '/photos/order-process/delivery.jpg');
+		}
+		
+		dt {
+			background-color: $c-blue;
+		}
+	}
+	
+	.design {	
+		z-index: 10;
+
+		dd {
+			background-image: url($path_img + '/photos/order-process/design.jpg');
+		}
+		
+		dt {
+			background-color: $c-green;
+			
+			&:after {
+				border-color: $c-green transparent transparent transparent;
+			}
+		}
+	}
+	
+	.finishing {	
+		z-index: 4;
+		
+		dd {
+			background-image: url($path_img + '/photos/order-process/finishing.jpg');
+		}
+		
+		dt {
+			background-color: $c-navy;
+			
+			&:after {
+				border-color: $c-navy transparent transparent transparent;
+			}
+		}
+	}
+	
+	.proof {	
+		z-index: 8;	
+	
+		dd {
+			background-image: url($path_img + '/photos/order-process/proof.jpg');
+		}
+		
+		dt {
+			background-color: $c-orange;
+			
+			&:after {
+				border-color: $c-orange transparent transparent transparent;
+			}
+		}
+	}
+	
+	.print {
+		z-index: 5;
+					
+		dd {
+			background-image: url($path_img + '/photos/order-process/print.jpg');
+		}
+		
+		dt {
+			background-color: $c-violet;
+			
+			&:after {
+				border-color: $c-violet transparent transparent transparent;
+			}
+		}
+	}
+	
+	.quotation {
+		z-index: 9;
+
+		dd {
+			background-image: url($path_img + '/photos/order-process/quotation.jpg');
+		}
+		
+		dt {
+			background-color: $c-yellow;
+			
+			&:after {
+				border-color: $c-yellow transparent transparent transparent;
+			}
+		}
+	}
+}

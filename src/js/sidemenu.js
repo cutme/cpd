@@ -39,41 +39,38 @@ document.addEventListener('DOMContentLoaded',function() {
 			
 			const leftColumn = document.getElementsByClassName('js-leftColumn');
 			
-			console.log(leftColumn);
-			
 			for (let i = 0; i < leftColumn.length; i++) {
 				leftColumn[i].removeAttribute('style');
 			}
 
-			sideMenuSections.classList.remove('is-visible');			
+			sideMenuSections.classList.remove('is-visible');	
+				
 			
 			setTimeout(function() {
 				sideMenu.classList.remove('is-visible');
-			}, 500);
-			
-			enableBodyScroll();
+				sideMenuSections.classList.remove('is-transition');
+			}, 500);			
+
+			for (let k = 0; k < close.length; k++) {
+				if (close[k].classList.contains('is-active')) {
+					close[k].classList.add('is-hidden');
+				}
+			}
+
+			enableBodyScroll();		
 		};
 		
 		
 		// Prepare side menu colors
-		
-		setTimeout(function() {
-			
-		}, 2000);
+
 		const navItems = document.getElementsByClassName('c-welcome')[0].getElementsByClassName('js-openMenu');
 
 		for (let j = 0; j < navItems.length; j++) {
 			
 			let primaryColor = getComputedStyle(navItems[j]);
-			
-			console.log(navItems[j].classList);
 
 			document.getElementsByClassName('js-section')[j].style.backgroundColor = primaryColor.color;
-			console.log(primaryColor.color);
-			//leftColumn.style.backgroundColor = style.color;
 		}
-
-		
 		
 		const openNav = function(arg) {
 			
@@ -85,7 +82,6 @@ document.addEventListener('DOMContentLoaded',function() {
 
 
 			// Check which menu clicked
-			
 			const window_pos = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
 
 			if (leftColumn.classList.contains('o-container__left--floating')) {
@@ -117,11 +113,32 @@ document.addEventListener('DOMContentLoaded',function() {
 			// Open menu in right
 			sideMenu.classList.add('is-visible');
 			
-			setTimeout(function() {
-				sideMenuSections.classList.add('is-visible');
-			}, 1);
+			if (!sideMenuSections.classList.contains('is-transition')) {
 				
-			sideMenuSections.style.transform  = "translate(0, -"+position+"vh)";
+				sideMenuSections.style.transform  = "translate3d(100%, -"+position+"vh, 0)";
+				sideMenuSections.classList.add('is-transition');
+				
+				
+				setTimeout(function() {
+					sideMenuSections.classList.add('is-visible');
+					sideMenuSections.style.transform  = "translate3d(0, -"+position+"vh, 0)";
+				}, 1);
+				
+			} else {
+
+				setTimeout(function() {
+					sideMenuSections.style.transform  = "translate3d(0, -"+position+"vh, 0)";
+					//sideMenuSections.classList.add('is-visible');
+				}, 1);
+			}
+			
+			setTimeout(function() {
+				for (let k = 0; k < close.length; k++) {
+					if (close[k].classList.contains('is-active')) {
+						close[k].classList.remove('is-hidden');
+					}
+				}	
+			}, 500);
 		};
 		
 		mainMenuToggle.forEach(function (item, idx) {
@@ -129,23 +146,6 @@ document.addEventListener('DOMContentLoaded',function() {
 				e.preventDefault();
 				
 				openNav(e.currentTarget);
-				
-
-				
-/*
-				const menuContainer = document.getElementsByClassName('menuContainer')[0];
-				
-				console.log(position);
-				
-				menuContainer.style.transform  = "translate(0, -"+position+"vh)";
-				
-				
-				if ( mainMenu.classList.contains('open') ) {
-					mainMenu.classList.remove('open');
-				} else  {
-					mainMenu.classList.add('open');
-				}
-*/
 			});
 		});
 		
@@ -164,8 +164,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 hideNav();
             }
         });
-        
-        
+
         for (let k = 0; k < close.length; k++) {
 			close[k].addEventListener('click', hideNav);
         }

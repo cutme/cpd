@@ -3,7 +3,8 @@
 	@extend %flex-wrap;
 
 	&__left {
-		@extend %anim;
+		//@extend %anim;
+		transition: background-color 500ms ease-out;
 		position: absolute;
 		width: grid(370);
 		height: 100%;

@@ -7098,7 +7098,6 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementsByClassName('item-active')[0].classList.remove('item-active');
       document.getElementsByClassName('is-negative')[0].classList.remove('is-negative');
       var leftColumn = document.getElementsByClassName('js-leftColumn');
-      console.log(leftColumn);
 
       for (var i = 0; i < leftColumn.length; i++) {
         leftColumn[i].removeAttribute('style');
@@ -7107,19 +7106,24 @@ document.addEventListener('DOMContentLoaded', function () {
       sideMenuSections.classList.remove('is-visible');
       setTimeout(function () {
         sideMenu.classList.remove('is-visible');
+        sideMenuSections.classList.remove('is-transition');
       }, 500);
+
+      for (var k = 0; k < close.length; k++) {
+        if (close[k].classList.contains('is-active')) {
+          close[k].classList.add('is-hidden');
+        }
+      }
+
       enableBodyScroll();
     }; // Prepare side menu colors
 
 
-    setTimeout(function () {}, 2000);
     var navItems = document.getElementsByClassName('c-welcome')[0].getElementsByClassName('js-openMenu');
 
     for (var j = 0; j < navItems.length; j++) {
       var primaryColor = getComputedStyle(navItems[j]);
-      console.log(navItems[j].classList);
       document.getElementsByClassName('js-section')[j].style.backgroundColor = primaryColor.color;
-      console.log(primaryColor.color); //leftColumn.style.backgroundColor = style.color;
     }
 
     var openNav = function openNav(arg) {
@@ -7151,30 +7155,33 @@ document.addEventListener('DOMContentLoaded', function () {
       leftColumn.style.backgroundColor = style.color; // Open menu in right
 
       sideMenu.classList.add('is-visible');
+
+      if (!sideMenuSections.classList.contains('is-transition')) {
+        sideMenuSections.style.transform = "translate3d(100%, -" + position + "vh, 0)";
+        sideMenuSections.classList.add('is-transition');
+        setTimeout(function () {
+          sideMenuSections.classList.add('is-visible');
+          sideMenuSections.style.transform = "translate3d(0, -" + position + "vh, 0)";
+        }, 1);
+      } else {
+        setTimeout(function () {
+          sideMenuSections.style.transform = "translate3d(0, -" + position + "vh, 0)"; //sideMenuSections.classList.add('is-visible');
+        }, 1);
+      }
+
       setTimeout(function () {
-        sideMenuSections.classList.add('is-visible');
-      }, 1);
-      sideMenuSections.style.transform = "translate(0, -" + position + "vh)";
+        for (var k = 0; k < close.length; k++) {
+          if (close[k].classList.contains('is-active')) {
+            close[k].classList.remove('is-hidden');
+          }
+        }
+      }, 500);
     };
 
     mainMenuToggle.forEach(function (item, idx) {
       item.addEventListener('click', function (e) {
         e.preventDefault();
         openNav(e.currentTarget);
-        /*
-        				const menuContainer = document.getElementsByClassName('menuContainer')[0];
-        				
-        				console.log(position);
-        				
-        				menuContainer.style.transform  = "translate(0, -"+position+"vh)";
-        				
-        				
-        				if ( mainMenu.classList.contains('open') ) {
-        					mainMenu.classList.remove('open');
-        				} else  {
-        					mainMenu.classList.add('open');
-        				}
-        */
       });
     }); // Hide menu on ESC
 
