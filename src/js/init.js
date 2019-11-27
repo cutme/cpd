@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded',function() {
 
         
         // Anims on inview
-        window.animsInit()      
+        window.animsInit()   
+        
+        // Side Menu
+        window.sideMenu();   
     };
     
     

@@ -17,15 +17,17 @@
 	
 	button[type=submit] {
 		@extend %abs;
+		@extend %anim;
 		right: 0; bottom: 0;
 		width: 28px; height: 34px;
 		background-color: $c-primary;
 		font-size: rem(26);
-		opacity: .6;
+		color: rgba(white, .6);
 		
 		&:hover {
 			.desktop & {
 				opacity: 1;
+				color: white;
 			}
 		}
 	}

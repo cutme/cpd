@@ -1,0 +1,119 @@
+.c-post {
+	@include clear;
+	max-width: 1520px;
+	height: 100%;
+	
+	&--about {
+		background: {
+			image: url(../img/bg/about.jpg);
+			size: cover;
+			position: center;
+		}
+	}
+
+	&--standard {
+		padding: 140px 120px;		
+		
+		@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+			padding: base(140) base(120);
+		}
+	
+		@media ( max-width: $tablet + px ) {
+			padding: 60px;
+		}
+		
+		h1 {
+			margin: 0 0 50px -40px;
+			padding: 120px 0 0 0;			
+			
+			@media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
+				margin: 0 0 base(50) -40px;
+				padding: base(120) 0 0 0;
+			}
+			
+			@media ( max-width: $desktop + px ) {
+				margin: 0 0 50px -40px;
+				padding: 60px 0 0 0;
+			}
+			
+			@media ( max-width: $tablet + px ) {
+				margin: 0 0 50px 0;
+			}
+		}
+		
+		
+		table {
+		    td {
+			    padding-bottom: 40px;
+	
+				&:first-of-type {
+					
+					@media ( min-width: $tablet + 1px ) {
+						padding-right: 110px;
+					}
+					
+					@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+						padding-right: base(110);
+					}
+					
+					@media ( min-width: $tablet + 1px )  and ( max-width: $desktop + px ) {
+						padding-right: 60px;
+					}
+				}
+				
+				&:last-of-type {
+					@media ( min-width: $tablet + 1px ) {
+						padding-left: 110px;
+					}
+
+					@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+						padding-left: base(110);
+					}
+				}
+				
+				@media ( max-width: $tablet + px ) {
+					display: block;
+				}
+			    
+			    img {
+					&.alignright {
+						float: right;
+						max-width: 100%;
+						margin: 0 0 20px -120px !important;
+						//margin: 0 0 20px 100px;
+						
+						
+					}
+				}
+		    }
+	    }
+	}
+	
+	&--page {
+		padding: 210px 120px;
+		
+		.o-article {
+			font-weight: $bold;
+		}
+		
+		h1 {
+			margin-bottom: 120px;
+		    
+		    @media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
+				margin-bottom: base(120);
+			}
+			
+			@media ( max-width: $desktop + px ) {
+				margin-bottom: 60px;
+			}
+		}
+		
+		@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+			padding: base(210) base(120);
+		}
+	
+		@media ( max-width: $tablet + px ) {
+			padding: 60px;
+		}
+	}
+}

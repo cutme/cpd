@@ -3,7 +3,7 @@
 	@extend %rel;
 	@include z-index(welcome);
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	background-color: black;
 	
 	.o-contactline {
@@ -15,6 +15,10 @@
 		&__right {
 			@media ( min-width: $base + 1px ) {
 				flex: 1;
+		    }
+		    
+		    &.is-white {
+		    	background-color: white;
 		    }
 		}
 	}

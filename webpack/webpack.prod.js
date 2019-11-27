@@ -15,7 +15,10 @@ console.log(process.env.NODE_ENV);
 
 const templateFileMapper = [
 
-    {template: "./src/index.ejs", file: "index.html"},   
+    {template: "./src/about.ejs", file: "about.html"},
+	{template: "./src/design.ejs", file: "design.html"},
+    {template: "./src/index.ejs", file: "index.html"},
+    {template: "./src/vinyl-graphics.ejs", file: "vinyl-graphics.html"},
 ]
 
 

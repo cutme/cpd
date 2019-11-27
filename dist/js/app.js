@@ -2784,9 +2784,9 @@ __webpack_require__("./src/img/assets/pencil-case.png");
 
 __webpack_require__("./src/img/assets/pencil-case@2x.png");
 
-__webpack_require__("./src/img/photos/blog-thumbnail.jpg");
+__webpack_require__("./src/img/photos/blog/thumbnail.jpg");
 
-__webpack_require__("./src/img/photos/blog-thumbnail@2x.jpg");
+__webpack_require__("./src/img/photos/blog/thumbnail@2x.jpg");
 
 __webpack_require__("./src/img/assets/roll.png");
 
@@ -2854,17 +2854,17 @@ module.exports = __webpack_require__.p + "img/assets/ruler@2x.png";
 
 /***/ }),
 
-/***/ "./src/img/photos/blog-thumbnail.jpg":
+/***/ "./src/img/photos/blog/thumbnail.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "img/photos/blog-thumbnail.jpg";
+module.exports = __webpack_require__.p + "img/photos/blog/thumbnail.jpg";
 
 /***/ }),
 
-/***/ "./src/img/photos/blog-thumbnail@2x.jpg":
+/***/ "./src/img/photos/blog/thumbnail@2x.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "img/photos/blog-thumbnail@2x.jpg";
+module.exports = __webpack_require__.p + "img/photos/blog/thumbnail@2x.jpg";
 
 /***/ }),
 
@@ -6893,7 +6893,9 @@ document.addEventListener('DOMContentLoaded', function () {
       cover.remove();
     }, 250); // Anims on inview
 
-    window.animsInit();
+    window.animsInit(); // Side Menu
+
+    window.sideMenu();
   };
 
   window.addEventListener('load', init);
@@ -7085,9 +7087,12 @@ document.addEventListener('DOMContentLoaded', function () {
   	
   */
 
-  var init = function init() {
+  window.sideMenu = function () {
     //const mainMenu = document.getElementById('menu');
-    var mainMenuToggle = document.querySelectorAll('.js-openMenu');
+    var mainMenuToggle = document.querySelectorAll('.js-openMenu'),
+        sideMenu = document.getElementById('sideMenu'),
+        sideMenuSections = document.getElementById('sideMenuSections'),
+        close = sideMenu.getElementsByClassName('js-closeNav');
 
     var hideNav = function hideNav() {
       document.getElementsByClassName('item-active')[0].classList.remove('item-active');
@@ -7099,8 +7104,23 @@ document.addEventListener('DOMContentLoaded', function () {
         leftColumn[i].removeAttribute('style');
       }
 
+      sideMenuSections.classList.remove('is-visible');
+      setTimeout(function () {
+        sideMenu.classList.remove('is-visible');
+      }, 500);
       enableBodyScroll();
-    };
+    }; // Prepare side menu colors
+
+
+    setTimeout(function () {}, 2000);
+    var navItems = document.getElementsByClassName('c-welcome')[0].getElementsByClassName('js-openMenu');
+
+    for (var j = 0; j < navItems.length; j++) {
+      var primaryColor = getComputedStyle(navItems[j]);
+      console.log(navItems[j].classList);
+      document.getElementsByClassName('js-section')[j].style.backgroundColor = primaryColor.color;
+      console.log(primaryColor.color); //leftColumn.style.backgroundColor = style.color;
+    }
 
     var openNav = function openNav(arg) {
       var position = cutme.Helpers.thisIndex(arg);
@@ -7122,15 +7142,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (active) {
         active.classList.remove('item-active');
-      } // Set active class
+      } // Set active class and theme background in left column
 
 
       leftColumn.classList.add('is-negative');
-      arg.classList.add('item-active'); // Set color in left column
-
-      var bgColor = arg.getAttribute('data-color');
+      arg.classList.add('item-active');
       var style = getComputedStyle(arg);
-      leftColumn.style.backgroundColor = style.color;
+      leftColumn.style.backgroundColor = style.color; // Open menu in right
+
+      sideMenu.classList.add('is-visible');
+      setTimeout(function () {
+        sideMenuSections.classList.add('is-visible');
+      }, 1);
+      sideMenuSections.style.transform = "translate(0, -" + position + "vh)";
     };
 
     mainMenuToggle.forEach(function (item, idx) {
@@ -7168,6 +7192,10 @@ document.addEventListener('DOMContentLoaded', function () {
         hideNav();
       }
     });
+
+    for (var k = 0; k < close.length; k++) {
+      close[k].addEventListener('click', hideNav);
+    }
   };
   /*
   	
@@ -7209,8 +7237,6 @@ document.addEventListener('DOMContentLoaded', function () {
       
   */
 
-
-  menu ? init() : false;
 }, false);
 
 /***/ }),

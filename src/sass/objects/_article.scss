@@ -1,5 +1,88 @@
 .o-article {
+
+	@media ( max-width: $tablet + px ) {
+		display: flex;
+	    flex-wrap: wrap;
+	}
+
+	h1 {
+		@extend %lead--1;
+		color: black;
+		
+		@media ( max-width: $tablet + px ) {
+			order: -1;	
+		}
+	}
+
+	h3 {
+		@extend %lead--3;
+		margin: 1em 0 2em 0;
+		color: black;
+	}
+	
+	img {
+		&.alignright {
+			margin: 0 0 50px 0;
+
+			@media ( min-width: $tablet + 1px ) {
+				float: right;
+				max-width: 50%;
+				margin: 0 0 100px 100px;
+			}			
+		}
+	}
+
     p {
         margin-bottom: 1.6em;
+    }
+    
+    table {
+	    td {
+		        
+		    padding-bottom: 40px;
+		    vertical-align: top;
+		    
+		    @media ( min-width: $tablet + 1px ) {
+		    	width: 50%;		
+		    }
+
+			&:first-of-type {
+				
+				@media ( min-width: $tablet + 1px ) {
+					padding-right: 60px;
+				}
+				
+				@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+					padding-right: base(60);
+				}
+				
+				@media ( min-width: $tablet + 1px )  and ( max-width: $desktop + px ) {
+					padding-right: 30px;
+				}
+			}
+			
+			&:last-of-type {
+				@media ( min-width: $tablet + 1px ) {
+					padding-left: 60px;
+				}
+
+				@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+					padding-left: base(60);
+				}
+
+			}
+			
+			@media ( max-width: $tablet + px ) {
+				display: block;
+			}
+		    
+		    img {
+				&.alignright {
+					float: right;
+					max-width: 100%;
+					margin: 0 0 20px 100px;
+				}
+			}
+	    }
     }
 }

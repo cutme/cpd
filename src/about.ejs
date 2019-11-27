@@ -1,0 +1,48 @@
+<% include ./src/includes/head %>
+<body>
+
+	<main class="o-container">
+		
+		<section class="c-welcome" id="welcome">
+			<div class="o-container__left js-leftColumn">
+				<% include ./src/includes/sidebar %>
+			</div>
+		
+			<div class="o-container__right bg-black">
+
+				<div class="c-post c-post--page c-post--about">
+					<article class="o-article">
+						
+						<h1>Welcome to the world of Colour Print Direct</h1>
+						
+						<img src=<%= require("./img/logo/cpd--negative.png") %> alt="" width="632" height="367" class="alignright">
+						
+						<p>We provide our clients with a full range of traditional and modern printing solutions, tailored to meet their specific business needs.</p>
+						<p>From concept to creation, starting with our in house design services, to full production printing.</p>
+						
+						
+					</article>
+				</div>
+
+			</div>
+		</section>
+
+
+		<div class="o-container__left o-container__left--floating js-leftColumn">
+			<% include ./src/includes/sidebar %>
+		</div>
+		
+		<div class="o-container__right">
+
+			<% include ./src/includes/footer %>
+		</div>
+		
+		
+	</main>
+	
+	<% include ./src/includes/sidemenu %>
+	<% include ./src/includes/nav %>
+
+</body>
+</html>
+

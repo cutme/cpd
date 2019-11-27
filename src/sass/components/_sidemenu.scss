@@ -1,0 +1,94 @@
+.c-sidemenu {
+	position: fixed;
+	top: 0;
+	@include z-index(sidemenu);
+	width: 1550px;
+	height: 100%;
+	display: none;
+	
+	@media ( min-width: $base + 1px ) {
+		left: 370px;
+    }
+
+    @media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
+	    width: grid(1550);
+	    left: grid(370);
+    }
+
+    @media ( max-width: $desktop + px ) {
+	    width: calc(100% - 246px);
+	    left: 246px;
+    }
+    
+    .o-lead {
+	    &--0 {
+		    @extend %rel;
+		    margin-bottom: 30px;
+		    padding-left: 60px;
+		    cursor: pointer;
+		    
+		    &:before {
+			    @extend %abs;
+			    @extend %abs-after;
+			    @extend %abs-y;
+			    @extend %anim;
+			    left: -6px;
+			    font: {
+				    family: $icomoon;
+				    size: rem(34);
+				    weight: $regular;
+				}
+			    content: "\e902";
+		    }
+
+			&:hover {
+				&:before {
+					.desktop & {
+						transform: translate3d(-5px, -50%, 0);
+					}
+				}
+			}
+	    }
+    }
+    
+    &__section {
+//	    @extend %abs;
+//	    left: 0; top: 0;
+	    width: 100%; height: 100vh;
+	    padding-top: 25vh;
+	    transition: all 500ms ease-in-out;
+	    color: white;
+	    
+	    ul {
+		    @extend %flex;
+		    @extend %flex-wrap;
+	    }
+	    
+	    li {
+		    width: 33%;
+		    margin-bottom: 10px;
+	    }
+	    
+	    a {
+		    @extend %ulink;
+		    font-size: rem(20);
+		    
+		    &:before, &:after {
+			    background-color: white;
+		    }
+	    }	    
+    }
+    
+    &__sections {
+	    opacity: 0;
+	    transition: all 500ms ease-out;
+	    
+	    &.is-visible {
+		    opacity: 1;
+	    }
+    }
+
+    &.is-visible {
+	    display: block;
+    }
+}

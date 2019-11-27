@@ -8,10 +8,13 @@
 		width: grid(370);
 		height: 100%;
 		padding: 50px 0;
-		box-shadow: inset -1px 0 0 0 rgba($c-gray-01, .22);
 		display: flex;
 	    flex-direction: column;
 	    justify-content: space-between;
+	    
+	    &:not(.is-negative) {
+		    box-shadow: inset -1px 0 0 0 rgba($c-gray-01, .22);
+	    }
 	    
 	    @media ( min-width: $base + 1px ) {
 	    	width: 370px;
@@ -72,6 +75,40 @@
 		    width: calc(100% - 246px);
 		    margin-left: 246px;
 	    }
+	}
+	
+	&--paddings {
+		padding: { 
+			left: 120px;		
+			right: 120px;
+		}
+		
+		@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+			padding: { 
+				left: base(120);		
+				right: base(120);
+			}
+		}
+	
+		@media ( max-width: $tablet + px ) {
+			padding: 60px;
+		}
+	}
+	
+	.bg-black {
+		.o-article, h1 {
+			color: white;
+		}
+	}
+	
+	.bg-white {
+		background-color: white;
+			    
+	    .o-lead {
+		    &--1 {
+			    color: black;
+		    }
+		}
 	}
 }
 

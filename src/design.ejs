@@ -1,0 +1,72 @@
+<% include ./src/includes/head %>
+<body>
+
+	<main class="o-container">
+		
+		<section class="c-welcome" id="welcome">
+			<div class="o-container__left js-leftColumn">
+				<% include ./src/includes/sidebar %>
+			</div>
+		
+			<div class="o-container__right is-white">
+
+				<div class="c-post c-post--page">
+					<article class="o-article">
+						
+						<h1>Design</h1>
+						
+						<table>
+							<tr>
+								<td>
+									<img src=<%= require("./img/photos/design/corporate-identity.jpg") %> alt="corporate-identity">
+									
+									<h3>Corporate Branding</h3>
+								</td>
+								
+								<td>
+									<img src=<%= require("./img/photos/design/design-consultation.jpg") %> alt="design-consultation">
+									
+									<h3>Design Consultation</h3>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<img src=<%= require("./img/photos/design/exhibition.jpg") %> alt="exhibition">
+									
+									<h3>Exhibition Graphics</h3>
+								</td>
+								
+								<td>
+									<img src=<%= require("./img/photos/design/graphic.jpg") %> alt="graphic">
+									
+									<h3>Graphic Design</h3>
+								</td>
+							</tr>
+						</table>						
+						
+					</article>
+				</div>
+
+			</div>
+		</section>
+
+
+		<div class="o-container__left o-container__left--floating js-leftColumn">
+			<% include ./src/includes/sidebar %>
+		</div>
+		
+		<div class="o-container__right">
+
+			<% include ./src/includes/footer %>
+		</div>
+		
+		
+	</main>
+	
+	<% include ./src/includes/sidemenu %>
+	<% include ./src/includes/nav %>
+
+</body>
+</html>
+

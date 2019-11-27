@@ -25,14 +25,17 @@ document.addEventListener('DOMContentLoaded',function() {
 	
 */
 	
-	const init = function() {
+	window.sideMenu = function() {
 	
 		//const mainMenu = document.getElementById('menu');
-		const mainMenuToggle = document.querySelectorAll('.js-openMenu');
+		const mainMenuToggle = document.querySelectorAll('.js-openMenu'),
+			  sideMenu = document.getElementById('sideMenu'),
+			  sideMenuSections = document.getElementById('sideMenuSections'),
+			  close = sideMenu.getElementsByClassName('js-closeNav');
 		
 		const hideNav = function() {
-			document.getElementsByClassName('item-active')[0].classList.remove('item-active');
-			document.getElementsByClassName('is-negative')[0].classList.remove('is-negative');
+			  document.getElementsByClassName('item-active')[0].classList.remove('item-active');
+			  document.getElementsByClassName('is-negative')[0].classList.remove('is-negative');
 			
 			const leftColumn = document.getElementsByClassName('js-leftColumn');
 			
@@ -41,9 +44,36 @@ document.addEventListener('DOMContentLoaded',function() {
 			for (let i = 0; i < leftColumn.length; i++) {
 				leftColumn[i].removeAttribute('style');
 			}
+
+			sideMenuSections.classList.remove('is-visible');			
+			
+			setTimeout(function() {
+				sideMenu.classList.remove('is-visible');
+			}, 500);
 			
 			enableBodyScroll();
 		};
+		
+		
+		// Prepare side menu colors
+		
+		setTimeout(function() {
+			
+		}, 2000);
+		const navItems = document.getElementsByClassName('c-welcome')[0].getElementsByClassName('js-openMenu');
+
+		for (let j = 0; j < navItems.length; j++) {
+			
+			let primaryColor = getComputedStyle(navItems[j]);
+			
+			console.log(navItems[j].classList);
+
+			document.getElementsByClassName('js-section')[j].style.backgroundColor = primaryColor.color;
+			console.log(primaryColor.color);
+			//leftColumn.style.backgroundColor = style.color;
+		}
+
+		
 		
 		const openNav = function(arg) {
 			
@@ -75,18 +105,24 @@ document.addEventListener('DOMContentLoaded',function() {
 				active.classList.remove('item-active');	
 			}
 			
-			// Set active class
+			// Set active class and theme background in left column
 			leftColumn.classList.add('is-negative');
 			arg.classList.add('item-active');
-			
-			// Set color in left column
-			
-			let bgColor = arg.getAttribute('data-color');
 			
 			const style = getComputedStyle(arg);
 			leftColumn.style.backgroundColor = style.color;
 			
-		}
+			
+			
+			// Open menu in right
+			sideMenu.classList.add('is-visible');
+			
+			setTimeout(function() {
+				sideMenuSections.classList.add('is-visible');
+			}, 1);
+				
+			sideMenuSections.style.transform  = "translate(0, -"+position+"vh)";
+		};
 		
 		mainMenuToggle.forEach(function (item, idx) {
 			item.addEventListener('click', (e) => {
@@ -128,6 +164,11 @@ document.addEventListener('DOMContentLoaded',function() {
                 hideNav();
             }
         });
+        
+        
+        for (let k = 0; k < close.length; k++) {
+			close[k].addEventListener('click', hideNav);
+        }
 	};
 	
 	
@@ -170,9 +211,7 @@ document.addEventListener('DOMContentLoaded',function() {
 
     
 */
-    
-    
-    menu ? init() :false;
+
     
 
 }, false);

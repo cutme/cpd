@@ -107,18 +107,38 @@
 	align-items: center;
 }
 
-%gradient {
-    left: -1px; top: -1px;
-    z-index: -2;
-    width: calc(100% + 2px); height: calc(100% + 2px);
-    background: rgba(218,218,218,0);
-    background: -moz-linear-gradient(top, rgba(218,218,218,0) 0%, rgba(218,218,218,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(218,218,218,0)), color-stop(100%, rgba(218,218,218,1)));
-    background: -webkit-linear-gradient(top, rgba(218,218,218,0) 0%, rgba(218,218,218,1) 100%);
-    background: -o-linear-gradient(top, rgba(218,218,218,0) 0%, rgba(218,218,218,1) 100%);
-    background: -ms-linear-gradient(top, rgba(218,218,218,0) 0%, rgba(218,218,218,1) 100%);
-    background: linear-gradient(to bottom, rgba(218,218,218,0) 0%, rgba(218,218,218,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dadada', endColorstr='#dadada', GradientType=0 );
+%lead--1 {
+	text-transform: uppercase;
+	line-height: 1.5em;
+	font: {
+		size: rem(48);
+		weight: $black;
+	}
+	
+	@media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
+		size: base(48);
+	}
+	
+	@media ( max-width: $desktop + px ) {
+		//font-size: rem(14);
+	}
+}
+
+%lead--3 {
+	line-height: 1.4em;
+	text-transform: uppercase;
+	font: {
+		size: rem(26);
+		weight: $extrabold;
+	}
+	
+	@media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
+		font-size: base(26);
+	}
+	
+	@media ( max-width: $desktop + px ) {
+		font-size: rem(22);
+	}
 }
 
 %rel {
@@ -136,7 +156,7 @@
         left: 0;
         width: 100%;
         transform: scale3d(0, 1, 1);
-        opacity: .5;
+        //opacity: .5;
     }
 
     &:before {
@@ -154,12 +174,12 @@
     }
 
     &:hover {
-        //.desktop & {
+        .desktop & {
             &:before {                
                 transform: scale3d(1, 1, 1);
                 transform-origin: left center;
             }
-        //}
+        }
     }
 }
 

@@ -100,6 +100,7 @@
 		height: 100px;
 		height: base(100);
 		padding-left: grid(60, 260);
+		cursor: pointer;
 		
 		@media ( min-width: $base + 1px ) {
 			padding-left: 60px;
