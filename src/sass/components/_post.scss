@@ -1,5 +1,5 @@
 .c-post {
-	@include clear;
+	@extend %clear;
 	max-width: 1520px;
 	height: 100%;
 	
@@ -43,6 +43,8 @@
 		
 		
 		table {
+			@extend %clear;
+
 		    td {
 			    padding-bottom: 40px;
 	
