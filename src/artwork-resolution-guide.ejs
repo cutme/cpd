@@ -1,0 +1,63 @@
+<% include ./src/includes/head %>
+<body>
+
+	<main class="o-container">
+		
+		<section class="c-welcome" id="welcome">
+			<div class="o-container__left js-leftColumn">
+				<% include ./src/includes/sidebar %>
+			</div>
+		
+			<div class="o-container__right bg-white">
+
+				<div class="c-post c-post--page">
+					<article class="o-article">
+						
+						<h1>Artwork Resolution Guide</h1>
+
+<img src=<%= require("./img/photos/post/hi-low-res.jpg") %> alt="hi-low-res" width="683" height="378" class="alignright">
+
+<p>The abbreviation DPI stands for Dots Per Inch and it refers to resolution of the artwork. 
+It literally means the number of printed dots contained within one inch of an image. The more dots per inch, the higher the resolution and the clearer the image.</p>
+
+<p>Images that are being printed should be created at 350dpi at size or larger, this ensures a high quality, clear image. You can check the image quality in Photoshop, go to Image>Image Size and at the</p>
+
+<table>
+	<tr>
+		<td>
+			<p>Please note changing this to a higher DPI will not increase the DPI in the image, it can not go any higher than what the original image is made at.</p>
+		</td>
+		
+		<td>
+			<p>Most images on the internet are at 72dpi and they look fine on screen. But if you were to print these images out, they will look pixellated and unclear. This is because screens and printers present images differently. </p>
+		</td>
+	</tr>
+</table>
+
+
+					</article>
+				</div>
+
+			</div>
+			</div>
+		</section>
+
+
+		<div class="o-container__left o-container__left--floating js-leftColumn">
+			<% include ./src/includes/sidebar %>
+		</div>
+		
+		<div class="o-container__right">
+
+			<% include ./src/includes/footer %>
+		</div>
+		
+		
+	</main>
+	
+	<% include ./src/includes/sidemenu %>
+	<% include ./src/includes/nav %>
+
+</body>
+</html>
+

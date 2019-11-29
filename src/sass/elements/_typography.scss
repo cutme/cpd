@@ -39,6 +39,10 @@ strong {
 	color: white;
 }
 
+hr {
+	@extend %clear;
+	border: none;
+}
 /*
 
 hr {

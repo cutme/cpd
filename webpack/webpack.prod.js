@@ -15,7 +15,10 @@ console.log(process.env.NODE_ENV);
 
 const templateFileMapper = [
 
-    { template: "./src/about.ejs", file: "about.html" },
+	{ template: "./src/about.ejs", file: "about.html" },
+	{ template: "./src/artwork-bleed-guide.ejs", file: "artwork-bleed-guide.html" },	
+	{ template: "./src/artwork-colour-guide.ejs", file: "artwork-colour-guide.html" },
+	{ template: "./src/artwork-resolution-guide.ejs", file: "artwork-resolution-guide.html" },
 	{ template: "./src/black-white.ejs", file: "black-white.html" },
 	{ template: "./src/colour-copying.ejs", file: "colour-copying.html" },
 	{ template: "./src/design.ejs", file: "design.html" },
@@ -23,7 +26,9 @@ const templateFileMapper = [
     { template: "./src/leaflets-flyers.ejs", file: "leaflets-flyers.html" },
     { template: "./src/notepads.ejs", file: "notepads.html" },
     { template: "./src/order-process.ejs", file: "order-process.html" },
-    { template: "./src/postcards.ejs", file: "postcards.html"} ,
+    { template: "./src/postcards.ejs", file: "postcards.html"},
+    { template: "./src/standard-document-sizes.ejs", file: "standard-document-sizes.html"},
+    { template: "./src/supplied-artwork.ejs", file: "supplied-artwork.html" },
     { template: "./src/vinyl-graphics.ejs", file: "vinyl-graphics.html" },
     { template: "./src/vouchers.ejs", file: "vouchers.html" },
 ]

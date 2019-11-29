@@ -4,6 +4,12 @@
 		display: flex;
 	    flex-wrap: wrap;
 	}
+	
+	a {
+		&:hover {
+			color: $c-red;
+		}
+	}
 
 	h1 {
 		@extend %lead--1;
@@ -28,7 +34,76 @@
 				float: right;
 				max-width: 50%;
 				margin: 0 0 100px 100px;
-			}			
+			}
+			
+			&.maxwidth--70 {
+				@media ( min-width: $tablet + 1px ) {
+					max-width: 70%;
+				}
+			}
+		}
+	}
+	
+	ol {
+		padding-left: 100px;
+		counter-reset: section;
+
+		li {
+			@extend %rel;
+			margin-bottom: 50px;
+			
+			&:before, &:after {
+				@extend %abs;
+				@extend %abs-after;
+				@extend %abs-y;
+				opacity: .5;
+			}
+			
+			&:before {	
+				left: -70px;
+				width: 4px;
+				height: 4px;
+				background-color: black;
+			}
+			
+			&:after {
+				left: -60px;
+				font: {
+					size: rem(12);
+					weight: $bold;
+				}
+				writing-mode: tb-rl;
+				counter-increment: section;
+				content: '0' counter(section);
+			}
+			
+			&:after {
+				
+			}
+			
+			img {
+				display: inline-block;
+				margin-right: 10px;
+			}
+
+			a {
+				@extend %rel;
+				font-size: rem(22);
+				
+				&:after {
+					@extend %abs;
+					@extend %abs-after;
+					right: -40px;
+					top: 4px;
+					font: {
+						family:  $icomoon;
+						size: rem(14);
+					}
+					content: "\e903";
+				}
+				
+				
+			}
 		}
 	}
 
@@ -37,6 +112,8 @@
     }
     
     table {
+		@extend %clear;
+
 	    td {
 		        
 		    padding-bottom: 40px;

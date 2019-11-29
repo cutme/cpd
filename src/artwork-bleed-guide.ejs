@@ -1,0 +1,60 @@
+<% include ./src/includes/head %>
+<body>
+
+	<main class="o-container">
+		
+		<section class="c-welcome" id="welcome">
+			<div class="o-container__left js-leftColumn">
+				<% include ./src/includes/sidebar %>
+			</div>
+		
+			<div class="o-container__right bg-white">
+
+				<div class="c-post c-post--page">
+					<article class="o-article">
+						
+						<h1>Artwork Bleed Guide</h1>
+
+<img src=<%= require("./img/photos/post/bleed.jpg") %> alt="bleed" width="473" height="334" class="alignright">
+	
+<p>It is important when creating artwork to include a ‘bleed’ area around artwork. </p>
+
+<p>Your job will be duplicated over a very large sheet of paper and then cut using a guillotine. It is impossible to cut exactly to the edge of a printed image so a little over print is required on each side. This overprint is called bleed. The image shows the cutting line and the edge of the bleed. The area in between is the bleed area. So bear in mind this is cut away and will not be on the end product.</p>
+
+<hr>
+
+	
+<p>Industry standard is to have 3mm of bleed on each edge which means that the overall length of each side will be 6mm longer. For example an A4 sheet with bleed is 303mm x 216mm. When it is cut down, the final size will be 297mm x 210mm, the 3mm “bleed” will have been cut away on each side.</p>
+
+<p>When creating new artwork using design software like Quark Xpress, Adobe Photoshop, InDesign or Illustrator it is important to set the size of your document so it includes a bleed area.</p>
+
+<p>The image also shows the ‘safe zone’ line. The safe zone is the 3mm area inside of the cutting line in which it is recommended no text should be placed.
+</p>
+
+
+					</article>
+				</div>
+
+			</div>
+			</div>
+		</section>
+
+
+		<div class="o-container__left o-container__left--floating js-leftColumn">
+			<% include ./src/includes/sidebar %>
+		</div>
+		
+		<div class="o-container__right">
+
+			<% include ./src/includes/footer %>
+		</div>
+		
+		
+	</main>
+	
+	<% include ./src/includes/sidemenu %>
+	<% include ./src/includes/nav %>
+
+</body>
+</html>
+

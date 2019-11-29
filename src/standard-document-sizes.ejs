@@ -1,0 +1,103 @@
+<% include ./src/includes/head %>
+<body>
+
+	<main class="o-container">
+		
+		<section class="c-welcome" id="welcome">
+			<div class="o-container__left js-leftColumn">
+				<% include ./src/includes/sidebar %>
+			</div>
+		
+			<div class="o-container__right bg-white">
+
+				<div class="c-post c-post--page">
+					<article class="o-article">
+						
+						<h1>Standard Document Sizes</h1>
+						
+						<p>The table below shows standard document names and sizes<br>
+When creating artwork you should use these sizes but don’t forget to add the 3mm bleed.<br>
+When saving as a pdf select 3mm bleed and crop marks in the options.</p>
+
+<img src=<%= require("./img/photos/post/paper-sizes.jpg") %> alt="paper-sizes" width="740" height="1009" class="alignright maxwidth--70">
+
+<p>
+(without bleed area)<br>
+(with bleed)<br>
+Size Name
+</p>
+
+<p>
+Business Card<br>
+85 mm x 55 mm
+</p>
+
+<p>
+DL / Comp Slip<br>
+99 mm x 210 mm
+</p>
+
+<p>
+A6<br>
+148 mm x 105 mm
+</p>
+
+<p>
+A5<br>
+210 mm x 148 mm
+</p>
+
+<p>
+A4<br>
+297 mm x 210 mm
+</p>
+
+<p>
+A3<br>
+420 mm x 297 mm
+</p>
+
+<p>
+A2<br>
+594 mm x 420 mm
+</p>
+
+<p>
+A1<br>
+841 mm x 594 mm
+</p>
+
+<p>
+A0<br>
+1189 mm x 841 mm
+</p>
+
+
+
+
+					</article>
+				</div>
+
+			</div>
+			</div>
+		</section>
+
+
+		<div class="o-container__left o-container__left--floating js-leftColumn">
+			<% include ./src/includes/sidebar %>
+		</div>
+		
+		<div class="o-container__right">
+
+			<% include ./src/includes/footer %>
+		</div>
+		
+		
+	</main>
+	
+	<% include ./src/includes/sidemenu %>
+	<% include ./src/includes/nav %>
+
+</body>
+</html>
+
