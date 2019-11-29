@@ -4,7 +4,7 @@
     @extend %flex;
     @extend %flex-xy;
     position: fixed;
-    right: 0; top: 0;
+    left: 0; top: 0;
     flex-shrink: 0;
     width: 60px; height: 60px;
     background-color: $c-red;
