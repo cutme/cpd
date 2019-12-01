@@ -40,12 +40,18 @@
 		padding: 0;
 		cursor: pointer;
 		
+		@media ( max-width: $smartphone + px ) {
+			margin: 0 4px;
+		}
+		
 		&--active {
 			background-color: $c-primary;
 		}
 	}
 	
 	&__bullets {
+		white-space: nowrap;
+		
 		&--black {
 			.glide {
 				&__bullet {

@@ -7,16 +7,40 @@
 		&__slide {
 			@extend %flex;
 		    @extend %flex-y;
-			background-size: cover;
+			background: {
+				size: cover;
+				position: right top;
+			}
+			
+			@media ( max-width: $tablet + px ) {
+				background: {
+					position: 0 top;
+				}
+			}
+			
+			@media ( max-width: $smartphone + px ) {
+				background: {
+					position: center top;
+				}
+			}
 		}
 	}
     
     &__text {
 	    max-width: 640px;
-	    padding: 0 0 0 80px;
+	    padding-left: 80px;
+	    
+	    @media ( min-width: $smartphone + 1px ) and ( max-width: $base + px ) {
+			padding-left: base(80);
+		}
 	    
 	    @media ( max-width: $base + px ) {
 		    width: base(640);
+	    }
+	    
+	    @media ( max-width: $tablet_portrait + px ) {
+		    width: tablet_portrait(440);
+		    padding-left: 30px;
 	    }
 	    
 	    color: white;
@@ -37,8 +61,16 @@
 			    weight: $black;
 			}
 			
-			@media ( min-width: $desktop + px ) and ( max-width: $base + px ) {
+			@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
 				font-size: base(80);
+			}
+			
+			@media ( max-width: $tablet + px ) {
+				font-size: tablet(40);	
+			}
+			
+			@media ( max-width: $smartphone + px ) {
+				font-size: rem(25);
 			}
 	    }
 
@@ -50,8 +82,20 @@
 			    weight: $semibold;
 			}
 			
-			@media ( min-width: $desktop + px ) and ( max-width: $base + px ) {
+			@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
 				font-size: base(53);
+			}
+			
+			@media ( max-width: $tablet + px ) {
+				font-size: rem(26);	
+			}
+			
+			@media ( max-width: $tablet + px ) {
+				font-size: tablet(26);	
+			}
+			
+			@media ( max-width: $smartphone + px ) {
+				font-size: rem(17);
 			}
 	    }
 	    
@@ -59,8 +103,20 @@
 		    line-height: 2.35em;
 			font-weight: $bold;
 			
-			@media ( min-width: $desktop + px ) and ( max-width: $base + px ) {
+			@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
 				font-size: base(20);
+			}
+			
+			@media ( max-width: $tablet + px ) {
+				font-size: rem(12);	
+			}
+			
+			@media ( max-width: $tablet + px ) {
+				font-size: tablet(12);	
+			}
+			
+			@media ( max-width: $smartphone + px ) {
+				font-size: rem(10);
 			}
 			
 			.glide & {

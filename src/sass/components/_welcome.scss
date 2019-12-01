@@ -9,6 +9,15 @@
 	.o-contactline {
 		@extend %abs;
 		right: 60px; top: 20px;
+		
+		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+			right: base(60);
+			top: base(20);
+		}
+		
+		@media ( max-width: $tablet_portrait + px ) {
+			right: 10px; top: 10px;
+		}
 	}
 	
 	.o-container {

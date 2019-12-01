@@ -28,7 +28,6 @@
 				color: $c-green;
 			}
 		}
-		
 	}
 	
 	.large-format {
@@ -82,12 +81,12 @@
 			weight: $bold;
 		}
 		
-		@media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
+		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
 			size: base(20);
 		}
 		
-		@media ( max-width: $desktop + px ) {
-			font-size: rem(14);
+		@media ( max-width: $tablet_portrait + px ) {
+			font-size: rem(12);
 		}
 	}
 	
@@ -96,8 +95,6 @@
 		@extend %flex;
 		@extend %flex-y;
 		max-height: 100px;
-		min-height: 64px;
-		height: 100px;
 		height: base(100);
 		padding-left: grid(60, 260);
 		cursor: pointer;
@@ -106,9 +103,18 @@
 			padding-left: 60px;
 		}
 		
+		@media ( min-width: $desktop + 1px ) {
+			min-height: 64px;
+		}
+		
 		@media ( max-width: $desktop + px ) {
 			height: 64px;
 			padding-left: 40px;
+		}
+		
+		@media ( max-width: $tablet + px ) {
+			height: 54px;
+			padding-left: 30px;
 		}
 		
 		&:before {
@@ -137,6 +143,4 @@
 			}
 		}
 	}
-	
-	
 }

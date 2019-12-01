@@ -8,6 +8,10 @@ body {
 		weight: $semibold;
 	}
 	color: $c-black-01;
+	
+	@media ( max-width: $tablet + px ) {
+		font-size: rem(16);
+	}
 }
 
 a {

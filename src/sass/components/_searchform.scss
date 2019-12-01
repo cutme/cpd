@@ -3,7 +3,10 @@
 	width: 360px;
 	margin: 0 auto 35px auto;
 	
-	
+	@media ( max-width: $smartphone_portrait + px ) {
+		width: 80%;
+		margin: 0 auto 15px auto;
+	}
     
 	
 	input[type=text] {
@@ -13,6 +16,10 @@
 		font-size: rem(21);
 		font-weight: $bold;
 		color: white;
+		
+		@media ( max-width: $smartphone + px ) {
+			font-size: rem(16);	
+		}
 	}
 	
 	button[type=submit] {
@@ -23,6 +30,8 @@
 		background-color: $c-primary;
 		font-size: rem(26);
 		color: rgba(white, .6);
+		
+		
 		
 		&:hover {
 			.desktop & {

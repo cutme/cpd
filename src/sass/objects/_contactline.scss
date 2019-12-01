@@ -3,15 +3,28 @@
 	
 	li {
 		padding-left: 60px;
+		
+		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+			padding-left: base(60);
+		}
+		
+		@media ( max-width: $tablet_portrait + px ) {
+			padding-left: 10px;
+		}
 	}
 	
 	a {
-		font: {
-			size: rem(18);
-			weight: $bold;
-		}
+		font-weight: $bold;
 		text-shadow: 0 0 20px rgba(black, 1), 0 0 30px rgba(black, 1), 0 0 40px rgba(black, 1);
 		color: white;
+		
+		@media ( max-width: $desktop + px ) {
+			font-size: rem(16);
+		}
+		
+		@media ( max-width: $tablet + px ) {
+			font-size: rem(14);
+		}
 		
 		&:hover {
 			.desktop & {
@@ -20,9 +33,19 @@
 		}
 	}
 	
+	span {
+		@media ( max-width: $tablet_portrait + px ) {
+			display: none;
+		}
+	}
+	
 	[class^="icon-"] {
 		margin-right: 15px;
 		vertical-align: middle;
 		font-size: rem(24);
+		
+		@media ( max-width: $tablet + px ) {
+			margin-right: 10px;
+		}
 	}
 }

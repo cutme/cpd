@@ -2,18 +2,34 @@
 	.o-cols {
 		&__item {
 			margin-bottom: 40px;
+			
+			@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+				margin-bottom: base(40);
+			}
+			
+			@media ( max-width: $tablet + px ) {
+				margin-bottom: 20px;
+			}
 		}
 	}
-	
+
 	.o-header {
 		@extend %flex;
 		@extend %flex-spacebetween;
 		@extend %flex-y;
 	}
-	
+
 	.glide {
 		&__bullets {
 			padding-right: 40px;
+			
+			@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+				padding-right: base(40);
+			}
+			
+			@media ( max-width: $tablet_portrait + px ) {
+				padding-right: 0;
+			}
 		}
 	}
 }

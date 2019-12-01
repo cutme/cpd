@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded',function() {
         const glide = new Glide(blog, {
             type: 'carousel',
             animationDuration: 1000,
-            autoplay: 6000,
+            autoplay: false,
             hoverpause: false,
             gap: 40,
         })
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded',function() {
         const glide = new Glide(home, {
             type: 'carousel',
             animationDuration: 1000,
-            autoplay: 5000,
+            autoplay: false,
             hoverpause: false,
             gap: 0
         })
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded',function() {
         const glide = new Glide(improve, {
             type: 'carousel',
             animationDuration: 1000,
-            autoplay: 6000,
+            autoplay: false,
             hoverpause: false,
             gap: 40,
         })
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded',function() {
         const glide = new Glide(references, {
             type: 'carousel',
             animationDuration: 1000,
-            autoplay: 6000,
+            autoplay: false,
             hoverpause: false,
             gap: 40,
         })

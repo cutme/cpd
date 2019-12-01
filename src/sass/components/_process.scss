@@ -1,11 +1,84 @@
 .c-process {
 	max-width: 1480px;	
+	
+	table {
+		color: white;;
+
+		tr {
+			@extend %rel;
+
+			td {
+				min-height: 240px;
+				vertical-align: middle;
+
+				&:first-of-type {
+					@extend %rel;
+					width: grid(468, 1480);
+					padding: 20px;
+					text-align: center;
+					
+					@media ( max-width: $smartphone + px ) {
+						padding: 10px;
+					}
+
+					&:after {
+						@extend %abs;
+						@extend %abs-after;
+						@extend %abs-x;
+						top: 0;
+						width: 0;
+						height: 0;
+						border-style: solid;
+						border-width: 18px 15px 0 15px;
+					}
+					
+					.o-lead {
+						&--3 {
+							@media ( min-width: $tablet + 1px ) {
+								display: inline-block;
+							}
+							
+							@media ( max-width: $smartphone + px ) {
+								font-size: rem(16);
+							}
+						}
+					}
+				}
+				
+				&:last-of-type {
+					background-size: cover;
+					height: 100%;
+					padding: 70px;
+					
+					@media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
+						padding: base(70);
+					}
+					
+					@media ( max-width: $desktop + px ) {
+						padding: 40px;
+					}
+					
+					p {
+						font-weight: $bold;
+					}
+					
+					section {
+						//@extend %flex;
+						//@extend %flex-y;
+						min-height: 120px;
+					}
+				}
+			}
+		}
+	}
 
 	dl {
 		@extend %flex;
 		@extend %flex-xy;
 		@extend %rel;
-		height: 245px;
+		//flex-direction: column;
+		//height: 245px;
+		min-height: 245px;
 		color: white;
 	}
 
@@ -15,6 +88,10 @@
 		@extend %rel;
 		width: grid(468, 1480);
 		height: 100%;
+		
+		@media ( max-width: $tablet + px ) {
+			flex-direction: column;
+		}
 		
 		&:after {
 			@extend %abs;
@@ -50,8 +127,18 @@
 	}
 	
 	[class^="icon-"] {
+		display: inline-block;
 		margin-right: 40px;
 		font-size: rem(50);
+		vertical-align: middle;
+		
+		@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+			margin-right: base(40);
+		}
+		
+		@media ( max-width: $tablet + px ) {
+			margin: 0;	
+		}
 	}
 	
 	.o-lead {
@@ -75,20 +162,21 @@
 			padding: 60px;
 		}
 	}
-	
-	
+
 	.amendments {
 		z-index: 7;	
 		
-		dd {
-			background-image: url($path_img + '/photos/order-process/amendments.jpg');
-		}
-		
-		dt {
-			background-color: $c-red;
-			
-			&:after {
-				border-color: $c-red transparent transparent transparent;
+		td {
+			&:first-of-type {
+				background-color: $c-red;
+				
+				&:after {
+					border-color: $c-orange transparent transparent transparent;
+				}
+			}
+
+			&:last-of-type {
+				background-image: url($path_img + '/photos/order-process/amendments.jpg');
 			}
 		}
 	}
@@ -96,33 +184,57 @@
 	.approval {
 		z-index: 6;
 		
-		dd {
-			background-image: url($path_img + '/photos/order-process/approval.jpg');
-		}
-		
-		dt {
-			background-color: $c-purple;
+		td {
+			&:last-of-type {
+				background-image: url($path_img + '/photos/order-process/approval.jpg');
+			}
 			
-			&:after {
-				border-color: $c-purple transparent transparent transparent;
+			&:first-of-type {
+				background-color: $c-purple;
+				
+				&:after {
+					border-color: $c-red transparent transparent transparent;
+				}
 			}
 		}
 	}
 	
 	.delivery {			
-		dd {
-			background-image: url($path_img + '/photos/order-process/delivery.jpg');
-		}
-		
-		dt {
-			background-color: $c-blue;
+		td {
+			&:first-of-type {
+				background-color: $c-blue;
+				
+				&:after {
+					border-color: $c-navy transparent transparent transparent;
+				}
+			}
+
+			&:last-of-type {
+				background-image: url($path_img + '/photos/order-process/delivery.jpg');
+			}
 		}
 	}
 	
 	.design {	
 		z-index: 10;
+		
+		td {
+			&:first-of-type {
+				background-color: $c-green;
+				
+				&:after {
+					border-color: $c-green transparent transparent transparent;
+				}				
+			}
+			
+			&:last-of-type {
+				background-image: url($path_img + '/photos/order-process/design.jpg');
+			}
+		}
+		
 
-		dd {
+		/*
+dd {
 			background-image: url($path_img + '/photos/order-process/design.jpg');
 		}
 		
@@ -133,20 +245,23 @@
 				border-color: $c-green transparent transparent transparent;
 			}
 		}
+*/
 	}
 	
 	.finishing {	
 		z-index: 4;
 		
-		dd {
-			background-image: url($path_img + '/photos/order-process/finishing.jpg');
-		}
-		
-		dt {
-			background-color: $c-navy;
+		td {
+			&:first-of-type {
+				background-color: $c-navy;
+				
+				&:after {
+					border-color: $c-violet transparent transparent transparent;
+				}
+			}
 			
-			&:after {
-				border-color: $c-navy transparent transparent transparent;
+			&:last-of-type {
+				background-image: url($path_img + '/photos/order-process/finishing.jpg');
 			}
 		}
 	}
@@ -154,15 +269,17 @@
 	.proof {	
 		z-index: 8;	
 	
-		dd {
-			background-image: url($path_img + '/photos/order-process/proof.jpg');
-		}
-		
-		dt {
-			background-color: $c-orange;
+		td {
+			&:first-of-type {
+				background-color: $c-orange;
 			
-			&:after {
-				border-color: $c-orange transparent transparent transparent;
+				&:after {
+					border-color: $c-yellow transparent transparent transparent;
+				}
+			}
+			
+			&:last-of-type {
+				background-image: url($path_img + '/photos/order-process/proof.jpg');
 			}
 		}
 	}
@@ -170,15 +287,17 @@
 	.print {
 		z-index: 5;
 					
-		dd {
-			background-image: url($path_img + '/photos/order-process/print.jpg');
-		}
-		
-		dt {
-			background-color: $c-violet;
+		td {
+			&:first-of-type {
+				background-color: $c-violet;
+				
+				&:after {
+					border-color: $c-purple transparent transparent transparent;
+				}
+			}
 			
-			&:after {
-				border-color: $c-violet transparent transparent transparent;
+			&:last-of-type {
+				background-image: url($path_img + '/photos/order-process/print.jpg');
 			}
 		}
 	}
@@ -186,16 +305,19 @@
 	.quotation {
 		z-index: 9;
 
-		dd {
-			background-image: url($path_img + '/photos/order-process/quotation.jpg');
-		}
-		
-		dt {
-			background-color: $c-yellow;
-			
-			&:after {
-				border-color: $c-yellow transparent transparent transparent;
+		td {
+			&:first-of-type {
+				background-color: $c-yellow;
+				
+				&:after {
+					border-color: $c-green transparent transparent transparent;
+				}
+			}
+
+			&:last-of-type {
+				background-image: url($path_img + '/photos/order-process/quotation.jpg');
 			}
 		}
+		
 	}
 }

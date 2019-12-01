@@ -3,18 +3,18 @@
 	color: black;
 	
 	&--0 {
-		line-height: 120px;
+		line-height: 1.7em;
 		font: {
 			size: rem(70);
 			weight: $black;
 		}
 		
-		@media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
-			size: base(70);
+		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+			font-size: base(70);
 		}
 		
-		@media ( max-width: $desktop + px ) {
-			font-size: rem(48);
+		@media ( max-width: $tablet_portrait + px ) {
+			font-size: tablet_portrait(48);
 		}
 	}
 

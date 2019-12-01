@@ -2,6 +2,15 @@
 
 	img {
 		margin-bottom: 40px;
+		
+		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+			margin-bottom: base(40);
+		}
+		
+		@media ( max-width: $tablet_portrait + px ) {
+			margin-bottom: 20px;
+			max-width: 15%;
+		}
 	}
 	
 	.icon-arrow-right {
@@ -16,7 +25,10 @@
 	
 	.o-cols {
 		.o-lead {
-			margin-bottom: 1em;
+			&--4 {
+				margin-bottom: 1em;
+				white-space: nowrap;
+			}
 		}
 		
 		&__item {

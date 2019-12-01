@@ -20,7 +20,8 @@ $black:				900;
 
 
 $z-index: (
-	sidemenu      : 110,
+	bigarrow      :  40,
+	sidemenu      :  90,
     hamburger:      100,
     header:         30,
     homecarousel: 1,
@@ -47,7 +48,7 @@ $base:				1920;
 // RWD
 
 $desktop:              1280;
-$tablet:               1023;
+$tablet:               1024;
 $tablet_portrait:       768;
 $smartphone:			640;
 $smartphone_portrait:	500;

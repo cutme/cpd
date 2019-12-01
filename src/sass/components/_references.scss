@@ -6,7 +6,19 @@
 	}
 	padding: 0 80px 60px 80px;
 	overflow: hidden;
-	color: white;	
+	color: white;
+	
+	@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+		padding: 0 base(80) base(60) base(80);
+	}
+	
+	@media ( max-width: $tablet_portrait + px ) {
+		padding: 0 30px 30px 30px;
+	}
+	
+	@media ( max-width: $smartphone + px ) {
+		padding: 0 20px 20px 20px;
+	}
 	
 	.o-lead {
 		color: white;

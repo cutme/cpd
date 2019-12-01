@@ -2,6 +2,7 @@ import css from './sass/style.scss';
 
 //require('./js/polyfills.js');
 require('./js/init.js');
+require('./js/bigarrow.js');
 require('./js/carousels.js');
 require('./js/fonts.js');
 require('./js/helpers.js');

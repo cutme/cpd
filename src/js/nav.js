@@ -8,20 +8,25 @@ document.addEventListener('DOMContentLoaded',function() {
           nav = document.getElementsByClassName('js-children'),
           menu = document.getElementsByClassName('js-menu')[0],
           hamburger = document.getElementsByClassName('js-hamburger')[0],
-          parent = el.getElementsByTagName('li');
+          parent = el.getElementsByTagName('li'),
+          searchForm = document.getElementById('searchform'),
+          social = document.getElementById('social');
+          
+    let cww;
 
     const init = function() {
 
-        let ww = 0;
+        let wh = 0;
 
-        const checkWindowWidth = function() {
-            ww = window.innerWidth;
-
-            if (ww > 1024) {
-
-                hideMenu();
+        const checkWindowHeight = function() {
+            wh = window.innerHeight;           
+            
+            if (wh <= (searchForm.clientHeight + menu.clientHeight + social.clientHeight)) {
+				el.classList.add('is-block');
+            } else {
+	            el.classList.remove('is-block');
             }
-        }
+        };
         
         const hideMenu = function() {
 
@@ -32,15 +37,14 @@ document.addEventListener('DOMContentLoaded',function() {
             for (let i = 0; i < nav.length; i ++) {
                 nav[i].classList.remove('is-active');
             }
-            
-            //cutme.Helpers.detach(searchform__content, searchform);
-            //searchform__content.classList.remove('is-visible');
-            
+
             let parent = el.getElementsByClassName('menu-item-has-children');
             
             for (let i = 0; i < parent.length; i ++) {
                 parent[i].classList.remove('is-active');
             }
+
+            window.removeEventListener('resize', cww);
         };
 
         const showMenu = function(e) {
@@ -54,22 +58,15 @@ document.addEventListener('DOMContentLoaded',function() {
                 disableBodyScroll(el);
                 el.classList.add('is-visible');
                 hamburger.classList.add('is-active');
-                
-                //cutme.Helpers.detach(searchform__content, el);
-                
-               /*
- setTimeout(function() {
-	                searchform__content.classList.add('is-visible');
-                }, 100);
-*/
             }
+            
+            cww = window.addEventListener('resize', checkWindowHeight);
+            
+            
+            //checkWindowWidth();
         };
 
-        
-
-        window.addEventListener('resize', checkWindowWidth);
-
-        checkWindowWidth();
+                
 
         hamburger.addEventListener('click', showMenu);
 

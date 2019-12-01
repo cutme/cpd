@@ -115,12 +115,17 @@
 		weight: $black;
 	}
 	
-	@media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
-		size: base(48);
+	@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+		font-size: base(48);
 	}
 	
-	@media ( max-width: $desktop + px ) {
-		//font-size: rem(14);
+	@media ( max-width: $tablet + px ) {
+		font-size: rem(26);
+	}
+	
+	@media ( max-width: $smartphone_portrait + px ) {
+		font-size: rem(24);
+		line-height: 1.2em;
 	}
 }
 
@@ -137,7 +142,7 @@
 	}
 	
 	@media ( max-width: $desktop + px ) {
-		font-size: rem(22);
+		font-size: rem(18);
 	}
 }
 

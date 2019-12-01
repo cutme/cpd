@@ -17,8 +17,8 @@
 
 	<main class="o-container">
 		
-
-			<div class="o-container__left o-container__left--floating js-leftColumn">
+		<section class="c-welcome" id="welcome">
+			<div class="o-container__left js-leftColumn">
 				
 			<aside class="c-sidebar js-sidebar">
 				<a href="index.html" class="o-logo">
@@ -67,7 +67,7 @@
 
 			</div>
 		
-			<div class="o-container__right bg-black">
+			<div class="o-container__right js-rightColumn bg-black">
 
 				<div class="c-post c-post--standard">
 					<article class="o-article">						
@@ -104,12 +104,59 @@ Phasellus rutrum congue sapien et varius. Praesent et etiam vel euismod nisi. Se
 				</div>
 
 			</div>
+		</section>
 
 
+		<div class="o-container__left o-container__left--floating js-leftColumn">
+			
+			<aside class="c-sidebar js-sidebar">
+				<a href="index.html" class="o-logo">
+					<span class="on-black">
+						<img src="img/logo/cpd--onblack.svg" width="250" height="145" alt="Colour Print Direct">
+					</span>
+					
+					<span class="on-white">
+						<img src="img/logo/cpd--onwhite.svg" width="250" height="145" alt="Colour Print Direct">
+					</span>
+					
+					<span class="negative">
+						<img src="img/logo/cpd--negative.svg" width="250" height="145" alt="Colour Print Direct">
+					</span>
+				</a>
+				
+				
+				<nav class="c-sidenav" id="sideNav">
+					<ul>
+						<li class="print js-openMenu">
+							<a href="#">Print</a>
+						</li>
+						
+						<li class="large-format js-openMenu">
+							<a href="#">Large format</a>
+						</li>
+						
+						<li class="copy js-openMenu">
+							<a href="#">Copy</a>
+						</li>
+						
+						<li class="promotion js-openMenu">
+							<a href="#">Promotion</a>
+						</li>
+						
+						<li class="finishing js-openMenu">
+							<a href="#">Finishing</a>
+						</li>
+					</ul>
+				</nav>
 
-		<!--
+				
+				<div>&nbsp;</div>
+				
+			</aside>	
 
-		<div class="o-container__right">
+		</div>
+		
+		<div class="o-container__right js-rightColumn">
 
 			
 			<footer class="c-footer">
@@ -119,11 +166,11 @@ Phasellus rutrum congue sapien et varius. Praesent et etiam vel euismod nisi. Se
 					
 				<ul class="o-contactline">
 					<li>
-						<a href="tel:01273420455"><i class="icon-phone"></i> 01273 420455</a>
+						<a href="tel:01273420455"><i class="icon-phone"></i> <span>01273 420455</span></a>
 					</li>
 					
 					<li>
-						<a href="mailto:info@colourprintdirect.com"><i class="icon-envelope"></i> info@colourprintdirect.com</a>
+						<a href="mailto:info@colourprintdirect.com"><i class="icon-envelope"></i> <span>info@colourprintdirect.com</span></a>
 					</li>
 				</ul>
 
@@ -198,10 +245,7 @@ Phasellus rutrum congue sapien et varius. Praesent et etiam vel euismod nisi. Se
 				</div>
 			</footer>
 
-		</div>
-		
--->
-		
+		</div>		
 	</main>
 	
 	
@@ -237,7 +281,7 @@ Phasellus rutrum congue sapien et varius. Praesent et etiam vel euismod nisi. Se
 					</li>
 					
 					<li>
-						<a href="#">Leaflets & Flyers</a>
+						<a href="leaflets-flyers.html">Leaflets & Flyers</a>
 					</li>
 					
 					<li>
@@ -357,11 +401,11 @@ Phasellus rutrum congue sapien et varius. Praesent et etiam vel euismod nisi. Se
 				
 				<ul>
 					<li>
-						<a href="#">Colour Copying</a>
+						<a href="colour-copying.html">Colour Copying</a>
 					</li>
 					
 					<li>
-						<a href="#">Black & White Photocopying</a>
+						<a href="black-white.html">Black & White Photocopying</a>
 					</li>					
 				</ul>
 			</section>
@@ -496,7 +540,7 @@ Phasellus rutrum congue sapien et varius. Praesent et etiam vel euismod nisi. Se
             </div>
         </form>
         
-        <ul class="c-social">
+        <ul class="c-social" id="social">
 	        <li>
 	        	<a href="#" class="icon-instagram"></a>
 	        </li>
@@ -512,6 +556,7 @@ Phasellus rutrum congue sapien et varius. Praesent et etiam vel euismod nisi. Se
 	</nav>
 	
 	<div class="o-hamburger js-hamburger"><i></i></div>
+	<div class="o-bigarrow js-bigarrow"></div>
 
 
 <script src="js/app.js"></script></body>

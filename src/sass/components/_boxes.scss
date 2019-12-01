@@ -4,6 +4,14 @@
 			padding: 40px;
 			text-align: center;
 			
+			@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+				padding: base(40);
+			}
+			
+			@media ( max-width: $tablet_portrait + px ) {
+				padding: 20px;
+			}
+			
 			&:hover {
 				.desktop & {
 					transform: translate3d(0, 5px, 0);
@@ -14,5 +22,13 @@
 
 	img {
 		margin: 0 auto 40px auto;
+		
+		@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+			margin: 0 auto base(40) auto;
+		}
+		
+		@media ( max-width: $tablet + px ) {
+			margin-bottom: 20px;
+		}
 	}
 }

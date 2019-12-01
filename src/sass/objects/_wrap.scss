@@ -5,6 +5,19 @@
     	left: 0;
     	right: 70px;
 	}
+	
+	
+	@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+		padding-right: base(70);
+	}
+	
+	@media ( max-width: $tablet_portrait + px ) {
+		padding-right: 30px;
+	}
+	
+	@media ( max-width: $smartphone + px ) {
+		padding-right: 20px;
+	}
 
 /*
 	@media ( max-width: + $base + 80px ) {
