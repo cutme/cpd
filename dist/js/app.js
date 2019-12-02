@@ -6558,36 +6558,70 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', function () {
   var el = document.getElementsByClassName('js-bigarrow')[0];
+  var ww = 0;
 
   var init = function init() {
     var columnRight = document.getElementsByClassName('js-rightColumn'),
         columnLeft = document.getElementsByClassName('js-leftColumn');
 
-    var action = function action(e) {
-      if (e.currentTarget.classList.contains('move-right')) {
-        for (var i = 0; i < columnRight.length; i++) {
-          columnRight[i].classList.remove('move-right');
-        }
+    var hide = function hide() {
+      for (var i = 0; i < columnRight.length; i++) {
+        columnRight[i].classList.remove('move-right');
+      }
 
-        for (var _i = 0; _i < columnLeft.length; _i++) {
-          columnLeft[_i].classList.remove('move-right');
-        }
+      for (var _i = 0; _i < columnLeft.length; _i++) {
+        columnLeft[_i].classList.remove('move-right');
+      }
 
-        el.classList.remove('move-right');
-      } else {
-        for (var _i2 = 0; _i2 < columnRight.length; _i2++) {
-          columnRight[_i2].classList.add('move-right');
-        }
+      el.classList.remove('move-right');
+    };
 
-        for (var _i3 = 0; _i3 < columnLeft.length; _i3++) {
-          columnLeft[_i3].classList.add('move-right');
-        }
+    var show = function show() {
+      for (var i = 0; i < columnRight.length; i++) {
+        columnRight[i].classList.add('move-right');
+      }
 
-        el.classList.add('move-right');
+      for (var _i2 = 0; _i2 < columnLeft.length; _i2++) {
+        columnLeft[_i2].classList.add('move-right');
+      }
+
+      el.classList.add('move-right');
+    };
+
+    var checkWindowWidth = function checkWindowWidth() {
+      ww = window.innerWidth;
+
+      if (ww > 500) {
+        hide();
       }
     };
 
-    el.addEventListener('click', action);
+    var action = function action(e) {
+      if (e.currentTarget.classList.contains('move-right')) {
+        hide();
+      } else {
+        show();
+      }
+    };
+
+    checkWindowWidth();
+    window.addEventListener('resize', checkWindowWidth);
+    el.addEventListener('click', action); // Hide menu on ESC
+
+    document.addEventListener('keydown', function (evt) {
+      // evt = evt || window.event;
+      var isEscape = false;
+
+      if ("key" in evt) {
+        isEscape = evt.key == "Escape" || evt.key == "Esc";
+      } else {
+        isEscape = evt.keyCode == 27;
+      }
+
+      if (isEscape) {
+        hide();
+      }
+    });
   };
 
   el ? init() : false;
@@ -7149,8 +7183,14 @@ document.addEventListener('DOMContentLoaded', function () {
         close = sideMenu.getElementsByClassName('js-closeNav');
 
     var hideNav = function hideNav() {
-      document.getElementsByClassName('item-active')[0].classList.remove('item-active');
-      document.getElementsByClassName('is-negative')[0].classList.remove('is-negative');
+      if (document.getElementsByClassName('item-active')[0]) {
+        document.getElementsByClassName('item-active')[0].classList.remove('item-active');
+      }
+
+      if (document.getElementsByClassName('is-negative')[0]) {
+        document.getElementsByClassName('is-negative')[0].classList.remove('is-negative');
+      }
+
       var leftColumn = document.getElementsByClassName('js-leftColumn');
 
       for (var i = 0; i < leftColumn.length; i++) {

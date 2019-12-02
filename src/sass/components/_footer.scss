@@ -78,8 +78,28 @@
 			width: 100%;
 			margin: 0;
 		}
+		
+		@media ( max-width: $smartphone + px ) {
+			display: block;
+		    width: 100%;
+			margin: 0;
+		}
 
 		&__item {
+			
+			@media ( max-width: $tablet + px ) {
+				width: 50%;
+				margin: 0;
+			}
+			
+			@media ( max-width: $smartphone + px ) {
+		    	width: 100%;
+		    	margin: {
+			    	left: 0;
+			    	right: 0;
+		    	}
+		    }
+		    
 			&:first-of-type {
 				
 				@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
@@ -89,11 +109,6 @@
 				@media ( max-width: $tablet_portrait + px ) {
 					padding-left: 30px;
 				}	
-			}
-			
-			@media ( max-width: $tablet + px ) {
-				width: 50%;
-				margin: 0;
 			}
 			
 			&:nth-of-type(2) {

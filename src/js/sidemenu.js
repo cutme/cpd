@@ -34,8 +34,14 @@ document.addEventListener('DOMContentLoaded',function() {
 			  close = sideMenu.getElementsByClassName('js-closeNav');
 		
 		const hideNav = function() {
-			  document.getElementsByClassName('item-active')[0].classList.remove('item-active');
-			  document.getElementsByClassName('is-negative')[0].classList.remove('is-negative');
+			
+			if (document.getElementsByClassName('item-active')[0]) {
+				document.getElementsByClassName('item-active')[0].classList.remove('item-active');
+			}
+			
+			if (document.getElementsByClassName('is-negative')[0]) {
+			    document.getElementsByClassName('is-negative')[0].classList.remove('is-negative');
+			}
 			
 			const leftColumn = document.getElementsByClassName('js-leftColumn');
 			
