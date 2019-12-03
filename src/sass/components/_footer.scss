@@ -101,7 +101,8 @@
 		    }
 		    
 			&:first-of-type {
-				
+				padding-left: 80px;
+
 				@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
 					padding-left: base(80);
 				}

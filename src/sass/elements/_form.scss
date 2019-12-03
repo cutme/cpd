@@ -66,19 +66,18 @@ textarea {
 ::-moz-placeholder { color: $c-gray-01; }
 :-ms-input-placeholder { color: $c-gray-01; }
 
-
-input[type=text],
-input[type=email],
-input[type=url],
 .form-field {
     width: 100%;
-    height: 40px;
-    background-color: white;
+    height: 80px;
+    background-color: transparent;
+    border-bottom: 1px solid white;
     padding: 0 20px;
     font: {
         family: $text;
-        size: rem(15);
+        size: rem(19);
+        weight: $bold;
     }
+    color: white;
 
     .is-loaded & {
         @extend %anim;
@@ -93,17 +92,25 @@ textarea.form-field {
     height: 200px;
 }
 
-.form-row {
-   @extend %flex;
-   margin: 0 -15px;
+.form-row {   
+   
+   @media ( min-width: $tablet_portrait + 1px ) {
+        display: flex;
+        margin: 0 -15px;
+   }
 }
 
 .form-group {
     @extend %flex;
     @extend %flex-wrap;
-    flex: 1;
+
     margin-bottom: 15px;
-    padding: 0 15px;
+    
+    
+    @media ( min-width: $tablet_portrait + 1px ) {
+        flex: 1;
+        padding: 0 15px;
+    }
         
     &.text-center {
         justify-content: center;

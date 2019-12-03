@@ -6149,6 +6149,57 @@ var EventDispatcher = nonGlobals.events.EventDispatcher;
 
 /***/ }),
 
+/***/ "./node_modules/load-google-maps-api/index.js":
+/***/ (function(module, exports) {
+
+const API_URL = 'https://maps.googleapis.com/maps/api/js'
+const CALLBACK_NAME = '__googleMapsApiOnLoadCallback'
+
+const optionsKeys = ['channel', 'client', 'key', 'language', 'region', 'v']
+
+let promise = null
+
+module.exports = function (options = {}) {
+  promise =
+    promise ||
+    new Promise(function (resolve, reject) {
+      // Reject the promise after a timeout
+      const timeoutId = setTimeout(function () {
+        window[CALLBACK_NAME] = function () {} // Set the on load callback to a no-op
+        reject(new Error('Could not load the Google Maps API'))
+      }, options.timeout || 10000)
+
+      // Hook up the on load callback
+      window[CALLBACK_NAME] = function () {
+        if (timeoutId !== null) {
+          clearTimeout(timeoutId)
+        }
+        resolve(window.google.maps)
+        delete window[CALLBACK_NAME]
+      }
+
+      // Prepare the `script` tag to be inserted into the page
+      const scriptElement = document.createElement('script')
+      const params = [`callback=${CALLBACK_NAME}`]
+      optionsKeys.forEach(function (key) {
+        if (options[key]) {
+          params.push(`${key}=${options[key]}`)
+        }
+      })
+      if (options.libraries && options.libraries.length) {
+        params.push(`libraries=${options.libraries.join(',')}`)
+      }
+      scriptElement.src = `${options.apiUrl || API_URL}?${params.join('&')}`
+
+      // Insert the `script` tag
+      document.body.appendChild(scriptElement)
+    })
+  return promise
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /***/ (function(module, exports) {
 
@@ -6445,6 +6496,8 @@ __webpack_require__("./src/js/helpers.js");
 __webpack_require__("./src/js/inview.js");
 
 __webpack_require__("./src/js/ismobile.js");
+
+__webpack_require__("./src/js/map.js");
 
 __webpack_require__("./src/js/nav.js");
 
@@ -7035,6 +7088,200 @@ document.addEventListener('DOMContentLoaded', function () {
     document.documentElement.className += ' desktop';
   }
 })();
+
+/***/ }),
+
+/***/ "./src/js/map.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+var loadGoogleMapsApi = __webpack_require__("./node_modules/load-google-maps-api/index.js");
+
+document.addEventListener('DOMContentLoaded', function () {
+  var obj = document.getElementsByClassName('js-map')[0];
+  var mapenable = false,
+      int;
+
+  var initMap = function initMap() {
+    loadGoogleMapsApi({
+      key: 'AIzaSyDzv4gozpcF9CjrI6OWHpLavj2hTLfH4IY'
+    }).then(function (googleMaps) {
+      var mapStyle = [{
+        'featureType': 'all',
+        'elementType': 'all',
+        'stylers': [{
+          'visibility': 'on'
+        }]
+      }, {
+        'featureType': 'all',
+        'elementType': 'labels',
+        'stylers': [{
+          'visibility': 'on'
+        }]
+      }, {
+        'featureType': 'administrative.country',
+        'elementType': 'geometry',
+        'stylers': [{
+          'visibility': 'on'
+        }]
+      }, {
+        'featureType': 'administrative.country',
+        'elementType': 'geometry.fill',
+        'stylers': [{
+          'visibility': 'off'
+        }]
+      }, {
+        'featureType': 'landscape',
+        'elementType': 'all',
+        'stylers': [{
+          'color': '#ffffff'
+        }]
+      }, {
+        'featureType': 'poi',
+        'elementType': 'all',
+        'stylers': [{
+          'visibility': 'off'
+        }]
+      }, {
+        'featureType': 'poi',
+        'elementType': 'labels.icon',
+        'stylers': [{
+          'visibility': 'off'
+        }]
+      }, {
+        'featureType': 'road',
+        'elementType': 'all',
+        'stylers': [{
+          'saturation': -100
+        }, {
+          'lightness': 45
+        }, {
+          'color': '#c0ccd3'
+        }]
+      }, {
+        'featureType': 'road',
+        'elementType': 'labels',
+        'stylers': [{
+          'color': '#386386'
+        }]
+      }, {
+        'featureType': 'road',
+        'elementType': 'labels.text',
+        'stylers': [{
+          'visibility': 'off'
+        }]
+      }, {
+        'featureType': 'road',
+        'elementType': 'labels.text.fill',
+        'stylers': [{
+          'visibility': 'on'
+        }]
+      }, {
+        'featureType': 'road.arterial',
+        'elementType': 'all',
+        'stylers': [{
+          'visibility': 'off'
+        }]
+      }, {
+        'featureType': 'road.local',
+        'elementType': 'geometry.fill',
+        'stylers': [{
+          'visibility': 'on'
+        }, {
+          "weight": "0.01"
+        }]
+      }, {
+        'featureType': 'transit',
+        'elementType': 'all',
+        'stylers': [{
+          'visibility': 'off'
+        }]
+      }, {
+        'featureType': 'water',
+        'elementType': 'all',
+        'stylers': [{
+          'color': '#bee3e9'
+        }, {
+          'visibility': 'on'
+        }]
+      }, {
+        'featureType': 'water',
+        'elementType': 'labels',
+        'stylers': [{
+          'visibility': 'simplified'
+        }]
+      }, {
+        'featureType': 'water',
+        'elementType': 'labels.text',
+        'stylers': [{
+          'visibility': 'on'
+        }]
+      }, {
+        'featureType': 'water',
+        'elementType': 'labels.icon',
+        'stylers': [{
+          'visibility': 'on'
+        }]
+      }];
+      var el = document.querySelector('.js-map'),
+          lat = Number(el.getAttribute('data-lat')),
+          lng = Number(el.getAttribute('data-lng')),
+          myLatLng = new google.maps.LatLng(lat, lng);
+      var map = new googleMaps.Map(el, {
+        center: myLatLng,
+        styles: mapStyle,
+        zoom: 15
+      });
+      /*
+                  var image = {
+                      url: 'http://www.marpress.pl/wp-content/uploads/2018/03/icobud.png',
+                      scaledSize: new google.maps.Size(40, 40), // scaled size
+                      origin: new google.maps.Point(0,0), // origin
+                      anchor: new google.maps.Point(50, 20) // anchor
+                  }
+      */
+      // Standard marker
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        animation: google.maps.Animation.DROP,
+        map: map
+      }); // Marker with image
+
+      /*
+                  var beachMarker = new google.maps.Marker({
+                      position: myLatLng,
+                      animation: google.maps.Animation.DROP,
+                      map: map,
+                      icon: image
+                  });
+      */
+    }).catch(function (error) {
+      console.error(error);
+    });
+  };
+
+  var init = function init() {
+    // Fire when show in viewport
+    clearInterval(int); // for better performance
+
+    int = setInterval(function () {
+      var bottomOfObject = obj.getBoundingClientRect().top + 200,
+          bottomOfWindow = window.innerHeight;
+
+      if (bottomOfWindow > bottomOfObject) {
+        if (mapenable === false) {
+          initMap();
+          console.log('fire map');
+          mapenable = true;
+        }
+      }
+    }, 50);
+  };
+
+  if (obj) {
+    window.addEventListener('scroll', init);
+  }
+}, false);
 
 /***/ }),
 

@@ -3,19 +3,28 @@
 	max-width: 1520px;
 	height: 100%;
 	
-	&--about {
-		background: {
-			image: url(../img/bg/about.jpg);
+	&--about,
+	&--contact {
+    	background: {
 			size: cover;
 			position: center;
 		}
 	}
 	
+	&--about {
+		background-image: url(../img/bg/about.jpg);
+	}
+	
+	&--contact {
+    	background-image: url(../img/photos/carousel/peacock-4--dark.jpg);
+	}
+	
 	&--page {
-		padding: 210px 120px;
+//		padding: 210px 120px;
+		padding: 160px 120px;
 		
 		@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
-			padding: base(210) base(120);
+			padding: base(160) base(120);
 		}
 		
 		@media ( max-width: $tablet + px ) {

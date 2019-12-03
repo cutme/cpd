@@ -1,0 +1,61 @@
+<% include ./src/includes/head %>
+<body>
+
+	<main class="o-container">
+		
+		<section class="c-welcome" id="welcome">
+			<div class="o-container__left js-leftColumn">
+				<% include ./src/includes/sidebar %>
+			</div>
+		
+			<div class="o-container__right js-rightColumn bg-black">
+
+				<div class="c-post c-post--page c-post--contact">
+					<article class="o-article">
+						
+						<h1>Contact us<br>Colour Print Direct Ltd</h1>
+						
+						<p>
+    						10a Station Road<br>
+                            Brighton<br>
+                            East Sussex<br>
+                            BN41 1GA<br>
+                            United Kingdom
+						</p>
+						
+						<p>
+    						01273 420455<br>
+                            <a href="mailto:info@colourprintdirect.com">info@colourprintdirect.com</a><br>
+                            <a href="http://www.colourprintdirect.com">www.colourprintdirect.com</a></p>
+                            
+                        <p>
+                            Opening times:<br>
+                            Monday to Friday: 8.30 - 17.30</p>						
+					</article>
+				</div>
+                
+			</div>
+		</section>
+
+
+		<div class="o-container__left o-container__left--floating js-leftColumn">
+			<% include ./src/includes/sidebar %>
+		</div>
+		
+		<div class="o-container__right js-rightColumn bg-black">
+
+            <% include ./src/includes/contactform %>
+            <div class="c-map js-map" data-lat="50.840638" data-lng="-0.1982631"></div>
+            
+			<% include ./src/includes/footer %>
+		</div>
+		
+		
+	</main>
+	
+	<% include ./src/includes/sidemenu %>
+	<% include ./src/includes/nav %>
+
+</body>
+</html>
+
