@@ -1,13 +1,24 @@
 .c-sidenav {
+	transform: translate3d(-150%, 0, 0);
+	
+	.is-loaded & {
+    	transition: all .5s ease-out;
+	}
+	
+	&.is-visible {
+		transform: translate3d(0, 0, 0);
+	}
 
 	.copy {
 		color: $c-red;
+/*
 
 		&:before {
 			color: $c-red;
 			content: "\e904";
 		}
 		
+*/
 		&:hover {
 			a {
 				color: $c-red;
@@ -17,12 +28,14 @@
 	
 	.finishing {
 		color: $c-green;
+/*
 
 		&:before {
 			color: $c-green;
 			content: "\e909";
 		}
 		
+*/
 		&:hover {
 			a {
 				color: $c-green;
@@ -32,12 +45,14 @@
 	
 	.large-format {
 		color: $c-orange;
-		
+		/*
+
 		&:before {
 			color: $c-orange;
 			content: "\e90b";
 		}
 		
+*/
 		&:hover {
 			a {
 				color: $c-orange;
@@ -47,12 +62,14 @@
 	
 	.print {
 		color: $c-yellow;
+/*
 		
 		&:before {
 			color: $c-yellow;
 			content: "\e90e";
 		}
 		
+*/
 		&:hover {
 			a {
 				color: $c-yellow;
@@ -62,12 +79,14 @@
 	
 	.promotion {
 		color: $c-blue;
-		
+		/*
+
 		&:before {
 			color: $c-blue;
 			content: "\e910";
 		}
 		
+*/
 		&:hover {
 			a {
 				color: $c-blue;
@@ -75,18 +94,39 @@
 		}
 	}
 	
+	.menu-item-type-post_type {
+    	a {
+        	&:hover {
+            	.desktop & {
+                	opacity: .7;
+                }
+        	}
+    	}
+	}
+	
 	a {
 		font: {
 			size: rem(20);
 			weight: $bold;
 		}
+		color: white;
 		
-		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+		.o-container__left--floating & {
+    		@media ( min-width: $smartphone_portrait + 1px ) {
+	    		color: black;
+    		}
+		}
+		
+		@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
 			size: base(20);
 		}
 		
+		@media ( max-width: $tablet + px ) {
+			font-size: rem(16);
+		}
+		
 		@media ( max-width: $tablet_portrait + px ) {
-			font-size: rem(12);
+//			font-size: rem(12);
 		}
 	}
 	
@@ -94,29 +134,41 @@
 		@extend %rel;
 		@extend %flex;
 		@extend %flex-y;
-		max-height: 100px;
-		height: base(100);
-		padding-left: grid(60, 260);
+		max-height: 64px;
+		height: base(64);
+		//padding-left: grid(60, 260);
 		cursor: pointer;
 		
-		@media ( min-width: $base + 1px ) {
+		/*
+@media ( min-width: $base + 1px ) {
 			padding-left: 60px;
 		}
+*/
 		
-		@media ( min-width: $desktop + 1px ) {
+		/*
+@media ( min-width: $desktop + 1px ) {
 			min-height: 64px;
 		}
 		
+*/
+/*
 		@media ( max-width: $desktop + px ) {
 			height: 64px;
 			padding-left: 40px;
 		}
 		
+*/
 		@media ( max-width: $tablet + px ) {
-			height: 54px;
-			padding-left: 30px;
+			//height: 54px;
+			//padding-left: 30px;
+			//height: 24px;
+			
+			height: auto;
+            line-height: 1.2em;
+            margin-bottom: 15px;
 		}
 		
+/*
 		&:before {
 			@extend %abs;
 			@extend %abs-after;
@@ -132,6 +184,7 @@
 				font-size: rem(24);
 			}
 		}
+*/
 		
 		&.item-active {
 			a {

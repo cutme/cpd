@@ -2,15 +2,17 @@
 	@extend %flex;
 	
 	li {
-		padding-left: 60px;
-		
-		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
-			padding-left: base(60);
-		}
-		
-		@media ( max-width: $tablet_portrait + px ) {
-			padding-left: 10px;
-		}
+    	&:not(.social) {
+    		padding-left: 60px;
+    		
+    		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
+    			padding-left: base(60);
+    		}
+    		
+    		@media ( max-width: $tablet_portrait + px ) {
+    			padding-left: 10px;
+    		}
+        }
 	}
 	
 	a {
@@ -32,6 +34,7 @@
 			}
 		}
 	}
+	
 	
 	span {
 		@media ( max-width: $tablet_portrait + px ) {

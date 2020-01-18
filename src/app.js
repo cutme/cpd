@@ -22,6 +22,7 @@ require('./js/sidemenu.js');
 
 require('./img/assets/color-palette.png');
 require('./img/assets/color-palette@2x.png');
+
 require('./img/assets/pencil-case.png');
 require('./img/assets/pencil-case@2x.png');
 
@@ -30,5 +31,6 @@ require('./img/photos/blog/thumbnail@2x.jpg');
 
 require('./img/assets/roll.png');
 require('./img/assets/roll@2x.png');
+
 require('./img/assets/ruler.png');
 require('./img/assets/ruler@2x.png');

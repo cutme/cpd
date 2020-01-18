@@ -106,10 +106,17 @@
 
     .form-row {
         &--submit {
+			
             padding-top: 60px;
+            
+            .form-group {
+	            @extend %rel;
+				height: 50px;
+				align-items: flex-start;
+            }
         }
     }
-    
+
     button[type=submit] {
         margin: 0 auto;
         font: {

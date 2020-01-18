@@ -63,8 +63,8 @@
 					}
 					
 					section {
-						//@extend %flex;
-						//@extend %flex-y;
+						@extend %flex;
+						@extend %flex-y;
 						min-height: 120px;
 					}
 				}
@@ -215,7 +215,7 @@
 		}
 	}
 	
-	.design {	
+	.design-brief {	
 		z-index: 10;
 		
 		td {

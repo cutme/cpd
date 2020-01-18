@@ -1,0 +1,75 @@
+div.wpcf7-validation-errors, 
+div.wpcf7-acceptance-missing {
+	padding: 0;
+	border: none;
+	color: $c-yellow;
+}
+
+span.wpcf7-not-valid-tip {
+	color: $c-red;
+}
+
+div.wpcf7 .ajax-loader {
+	@extend %abs;
+	@extend %abs-x;
+    bottom: -120px;
+}
+
+div.wpcf7 .ajax-loader,
+div.wpcf7 .ajax-loader:before,
+div.wpcf7 .ajax-loader:after {
+  background: #ffffff;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: .25em;
+  height: 1em;
+}
+div.wpcf7 .ajax-loader {
+  color: #ffffff;
+  text-indent: -9999em;
+  margin: 88px auto;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+div.wpcf7 .ajax-loader:before,
+div.wpcf7 .ajax-loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+div.wpcf7 .ajax-loader:before {
+  left: -0.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+div.wpcf7 .ajax-loader:after {
+  left: 0.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 1em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 2em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 1em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 2em;
+  }
+}

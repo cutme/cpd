@@ -1,8 +1,8 @@
 .o-article {
 
 	@media ( max-width: $tablet + px ) {
-		display: flex;
-	    flex-wrap: wrap;
+		//display: flex;
+	   // flex-wrap: wrap;
 	}
 	
 	a {
@@ -49,6 +49,10 @@
 	ol {
 		padding-left: 100px;
 		counter-reset: section;
+		
+		@media ( max-width: $smartphone + px ) {
+			padding-left: 40px;
+		}
 
 		li {
 			@extend %rel;
@@ -66,6 +70,10 @@
 				width: 4px;
 				height: 4px;
 				background-color: black;
+				
+				@media ( max-width: $smartphone + px ) {
+					left: -40px;
+				}
 			}
 			
 			&:after {
@@ -77,34 +85,39 @@
 				writing-mode: tb-rl;
 				counter-increment: section;
 				content: '0' counter(section);
-			}
-			
-			&:after {
 				
+				@media ( max-width: $smartphone + px ) {
+					left: -30px;
+				}
 			}
-			
+
 			img {
-				display: inline-block;
-				margin-right: 10px;
+				//display: inline-block;
+				margin-right: 15px;
 			}
 
 			a {
 				@extend %rel;
+				@extend %flex;
+				@extend %flex-y;
 				font-size: rem(22);
 				
+				@media ( max-width: $smartphone + px ) {
+					font-size: rem(18);
+				}
+				
 				&:after {
-					@extend %abs;
-					@extend %abs-after;
-					right: -40px;
-					top: 4px;
+					//@extend %abs;
+					//@extend %abs-after;
+					//right: -40px;
+					//top: 4px;
+					padding-left: 20px;
 					font: {
 						family:  $icomoon;
 						size: rem(14);
 					}
 					content: "\e903";
-				}
-				
-				
+				}				
 			}
 		}
 	}
@@ -121,37 +134,37 @@
 		    padding-bottom: 40px;
 		    vertical-align: top;
 		    
-		    @media ( min-width: $tablet + 1px ) {
+		    @media ( min-width: $tablet_portrait + 1px ) {
 		    	width: 50%;		
 		    }
 
 			&:first-of-type {
 				
-				@media ( min-width: $tablet + 1px ) {
+				@media ( min-width: $tablet_portrait + 1px ) {
 					padding-right: 60px;
 				}
 				
-				@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+				@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
 					padding-right: base(60);
 				}
 				
-				@media ( min-width: $tablet + 1px )  and ( max-width: $desktop + px ) {
+				@media ( min-width: $tablet_portrait + 1px )  and ( max-width: $desktop + px ) {
 					padding-right: 30px;
 				}
 			}
 			
 			&:last-of-type {
-				@media ( min-width: $tablet + 1px ) {
+				@media ( min-width: $tablet_portrait + 1px ) {
 					padding-left: 60px;
 				}
 
-				@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+				@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
 					padding-left: base(60);
 				}
 
 			}
 			
-			@media ( max-width: $tablet + px ) {
+			@media ( max-width: $tablet_portrait + px ) {
 				display: block;
 			}
 		    
@@ -171,5 +184,26 @@
 	    li {
 		    padding-left: 60px;
 	    }
+    }
+    
+    .wp-block-image {
+        figure {
+            margin: 0 0 50px 0;
+            
+            &.alignright {
+    
+    			@media ( min-width: $tablet + 1px ) {
+    				float: right;
+    				max-width: 50%;
+    				margin: 0 0 100px 100px;
+    			}
+    			
+    			&.maxwidth--70 {
+    				@media ( min-width: $tablet + 1px ) {
+    					max-width: 70%;
+    				}
+    			}
+    		}
+        }
     }
 }

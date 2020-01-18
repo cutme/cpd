@@ -3,7 +3,10 @@ import css from '../../node_modules/@glidejs/glide/src/assets/sass/glide.core.sc
 
 document.addEventListener('DOMContentLoaded',function() {
 
-    const el = document.getElementsByClassName('js-bigarrow')[0];
+    const el = document.getElementsByClassName('js-bigarrow')[0],
+		  sidenav = document.getElementsByClassName('js-sidenav'),
+          hamburger = document.getElementsByClassName('js-hamburger')[0];
+
     let ww = 0;
     
     
@@ -23,7 +26,12 @@ document.addEventListener('DOMContentLoaded',function() {
 		        columnLeft[i].classList.remove('move-right');
 	        }
 	        
+            for (let i = 0; i < sidenav.length; i++) {
+                sidenav[i].classList.remove('is-visible');
+            }
+
 	        el.classList.remove('move-right');
+	        hamburger.classList.remove('is-active');
 		};
 		
 		const show = function() {
@@ -34,8 +42,13 @@ document.addEventListener('DOMContentLoaded',function() {
 	        for (let i = 0; i < columnLeft.length; i++) {
 		        columnLeft[i].classList.add('move-right');
 	        }
-	        
+    
+            for (let i = 0; i < sidenav.length; i++) {
+                sidenav[i].classList.add('is-visible');
+            }
+
 	        el.classList.add('move-right');
+	        hamburger.classList.add('is-active');
 		};
 
 

@@ -24,6 +24,7 @@ const templateFileMapper = [
 	{ template: "./src/artwork-colour-guide.ejs", file: "artwork-colour-guide.html" },
 	{ template: "./src/artwork-resolution-guide.ejs", file: "artwork-resolution-guide.html" },
 	{ template: "./src/black-white.ejs", file: "black-white.html" },
+	{ template: "./src/blog.ejs", file: "blog.html" },
 	{ template: "./src/colour-copying.ejs", file: "colour-copying.html" },
 	{ template: "./src/contact.ejs", file: "contact.html" },
 	{ template: "./src/design.ejs", file: "design.html" },

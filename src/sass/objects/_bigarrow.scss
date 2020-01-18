@@ -4,7 +4,7 @@
 	left: 0; top: 51px;
 	width: 50px; height: calc(100% - 51px);
 	background-color: transparent;
-	transition: all 500 ease-out;
+	transition: all 500ms ease-out;
 	cursor: pointer;
 	
 	@media ( min-width: $smartphone_portrait + 1px ) {

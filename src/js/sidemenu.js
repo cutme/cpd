@@ -79,10 +79,17 @@ document.addEventListener('DOMContentLoaded',function() {
 		}
 		
 		const openNav = function(arg) {
+    		
+    		console.log(arg);
 			
-			let position = cutme.Helpers.thisIndex(arg);
+			let menuitemsbefore = document.getElementsByClassName('js-sidenav')[0].getElementsByClassName('menu-item-type-post_type').length;
+			console.log('menuitemsbefore: ' + menuitemsbefore);
+			
+			let position = cutme.Helpers.thisIndex(arg) - menuitemsbefore;
 				position = position * 100,
 				leftColumn = arg.parentNode.parentNode.parentNode.parentNode;
+				
+				console.log('this index: ' + cutme.Helpers.thisIndex(arg));
 			
 			disableBodyScroll();
 
@@ -126,16 +133,20 @@ document.addEventListener('DOMContentLoaded',function() {
 				
 				
 				setTimeout(function() {
+    				//console.log('a position: ' + position);
 					sideMenuSections.classList.add('is-visible');
 					sideMenuSections.style.transform  = "translate3d(0, -"+position+"vh, 0)";
+					//console.log(sideMenuSections.style);
+					//console.log( "translate3d(0, -"+position+"vh, 0)");
 				}, 1);
 				
 			} else {
 
 				setTimeout(function() {
+    				//console.log('b position: ' + position);
 					sideMenuSections.style.transform  = "translate3d(0, -"+position+"vh, 0)";
 					//sideMenuSections.classList.add('is-visible');
-				}, 1);
+				}, 10);
 			}
 			
 			setTimeout(function() {

@@ -4,19 +4,98 @@ const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 
 document.addEventListener('DOMContentLoaded',function() {
 
-    const el = document.getElementsByClassName('js-nav')[0],
+/*
+    const el = document.getElementsByClassName('js-nav')[0];
           nav = document.getElementsByClassName('js-children'),
           menu = document.getElementsByClassName('js-menu')[0],
           hamburger = document.getElementsByClassName('js-hamburger')[0],
           parent = el.getElementsByTagName('li'),
           searchForm = document.getElementById('searchform'),
           social = document.getElementById('social');
+*/
           
+    const sidenav = document.getElementsByClassName('js-sidenav'),
+          hamburger = document.getElementsByClassName('js-hamburger')[0];
+          
+    const columnRight = document.getElementsByClassName('js-rightColumn'),
+    	  columnLeft = document.getElementsByClassName('js-leftColumn'),
+          bigarrow = document.getElementsByClassName('js-bigarrow')[0],
+          sideMenu = document.getElementById('sideMenu'),
+          sideMenuSections = document.getElementById('sideMenuSections'),
+          closeSideMenu = sideMenu.getElementsByClassName('js-closeNav');
+          
+
     let cww;
 
     const init = function() {
 
-        let wh = 0;
+        let wh = 0, ww = 0;
+        
+        const checkWindowWidth = function() {
+	        ww = window.innerWidth;           
+	        
+	        if (ww > 500) {
+				hideCols();
+	        }
+	    };
+	    
+	    const hideCols = function() {
+			for (let i = 0; i < columnRight.length; i++) {
+		        columnRight[i].classList.remove('move-right');
+	        }
+	        
+	        for (let i = 0; i < columnLeft.length; i++) {
+		        columnLeft[i].classList.remove('move-right');
+	        }
+	        
+	        bigarrow.classList.remove('move-right');
+		};
+		
+		const showCols = function() {
+			for (let i = 0; i < columnRight.length; i++) {
+		        columnRight[i].classList.add('move-right');
+	        }
+	        
+	        for (let i = 0; i < columnLeft.length; i++) {
+		        columnLeft[i].classList.add('move-right');
+	        }
+	        
+	        bigarrow.classList.add('move-right');
+		};
+		
+		const hideSideMenu = function() {
+			
+			if (document.getElementsByClassName('item-active')[0]) {
+				document.getElementsByClassName('item-active')[0].classList.remove('item-active');
+			}
+			
+			if (document.getElementsByClassName('is-negative')[0]) {
+			    document.getElementsByClassName('is-negative')[0].classList.remove('is-negative');
+			}
+			
+			//const leftColumn = document.getElementsByClassName('js-leftColumn');
+			
+			for (let i = 0; i < columnLeft.length; i++) {
+				columnLeft[i].removeAttribute('style');
+			}
+
+			sideMenuSections.classList.remove('is-visible');	
+				
+			
+			setTimeout(function() {
+				sideMenu.classList.remove('is-visible');
+				sideMenuSections.classList.remove('is-transition');
+			}, 500);			
+
+			for (let k = 0; k < close.length; k++) {
+				if (closeSideMenu[k].classList.contains('is-active')) {
+					closeSideMenu[k].classList.add('is-hidden');
+				}
+			}
+
+			enableBodyScroll();		
+		};
+/*
 
         const checkWindowHeight = function() {
             wh = window.innerHeight;           
@@ -28,12 +107,21 @@ document.addEventListener('DOMContentLoaded',function() {
             }
         };
         
+*/
         const hideMenu = function() {
 
-            enableBodyScroll(el);
-            el.classList.remove('is-visible');
+            //enableBodyScroll(el);
+            //el.classList.remove('is-visible');
+            
+            for (let i = 0; i < sidenav.length; i++) {
+                sidenav[i].classList.remove('is-visible');
+            }
+            
             hamburger.classList.remove('is-active');
+            hideCols();
+            hideSideMenu();
 
+/*
             for (let i = 0; i < nav.length; i ++) {
                 nav[i].classList.remove('is-active');
             }
@@ -43,35 +131,49 @@ document.addEventListener('DOMContentLoaded',function() {
             for (let i = 0; i < parent.length; i ++) {
                 parent[i].classList.remove('is-active');
             }
+*/
 
+            //if (ww < 500) {
+            
+            //}
+            
             window.removeEventListener('resize', cww);
         };
 
         const showMenu = function(e) {
-        
+            
+            checkWindowWidth();
+            
             if (e.currentTarget.classList.contains('is-active')) {
             
                 hideMenu();            
             
             } else {
             
-                disableBodyScroll(el);
-                el.classList.add('is-visible');
+                //disableBodyScroll(el);
+                //el.classList.add('is-visible');
+                
+                for (let i = 0; i < sidenav.length; i++) {
+                    sidenav[i].classList.add('is-visible');
+                }
+                
                 hamburger.classList.add('is-active');
+                
+                if (ww <= 500) {
+	                showCols();
+                }
             }
             
-            cww = window.addEventListener('resize', checkWindowHeight);
-            
-            
-            //checkWindowWidth();
-        };
+            //cww = window.addEventListener('resize', checkWindowHeight);            
+        };        
 
                 
 
         hamburger.addEventListener('click', showMenu);
 
 
-        const parent = menu.getElementsByTagName('li');
+        //const parent = menu.getElementsByTagName('li');
+/*
 
         const submenu = function(e) {
         
@@ -95,11 +197,14 @@ document.addEventListener('DOMContentLoaded',function() {
                 e.preventDefault() ? e.preventDefault() : e.preventDefault = false;
             }
         }
+*/
 
+/*
 
         for (let j = 0; j < parent.length; j++) {
             parent[j].addEventListener('click', submenu);
         }
+*/
 
 
         // Hide menu on ESC
@@ -114,11 +219,12 @@ document.addEventListener('DOMContentLoaded',function() {
             }
             if (isEscape) {
                 hideMenu();
+                hideCols();
             }
         });
 
     };
 
-    el ? init() : false;
+    sidenav ? init() : false;
 
 }, false);

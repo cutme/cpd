@@ -2,21 +2,37 @@
 	@extend %clear;
 	max-width: 1520px;
 	height: 100%;
+	background: {
+		size: cover;
+		position: center;
+    }
 	
-	&--about,
-	&--contact {
-    	background: {
-			size: cover;
-			position: center;
-		}
-	}
-	
+/*
 	&--about {
 		background-image: url(../img/bg/about.jpg);
 	}
+	*/
 	
+	&--blog,
+	&--search {
+		h1 {
+			@extend %lead--1;
+			color: black;
+			
+			@media ( max-width: $tablet + px ) {
+				order: -1;	
+			}
+		}
+	}
+
 	&--contact {
     	background-image: url(../img/photos/carousel/peacock-4--dark.jpg);
+    	
+    	.o-social {
+        	a {
+                color: white;
+        	}
+    	}
 	}
 	
 	&--page {
@@ -114,7 +130,7 @@
 					display: block;
 				}
 			    
-			    img {
+			    figure {
 					&.alignright {
 						float: right;
 						max-width: 100%;

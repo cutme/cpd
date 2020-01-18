@@ -60,6 +60,10 @@
 		&--floating {
 			position: fixed;
 			background-color: white;
+			
+			@media ( max-width: $smartphone_portrait + px ) {
+    			background-color: black;
+            }
 		}
 		
 		&.is-negative {

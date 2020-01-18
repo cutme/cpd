@@ -45,6 +45,12 @@
 			&:last-child {
 				margin: 0 0 0 auto;
 			}
+			
+			&:nth-of-type(odd) {
+                &:not(:last-child) {
+                    padding-right: 10px;
+                }
+			}
 		}
 		
 		a {
@@ -65,6 +71,10 @@
 		
 		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
 			padding-left: base(80);
+		}
+		
+		@media ( max-width: $tablet + px ) {
+			padding-top: 25px;
 		}
 	
 		@media ( max-width: $tablet_portrait + px ) {
@@ -143,10 +153,23 @@
 	}
 	
 	.o-contactline {
-		@media ( max-width: $tablet + px ) {
+
+		@media ( max-width: $tablet + 100px ) {
+    		width: 100%;
+    	}
+
+		@media ( max-width: $tablet + 100px ) {
 			flex-direction: column;
 			text-align: right;
 		}
+    	
+    	@media ( max-width: $tablet_portrait + px ) {
+    	    flex-direction: row-reverse !important;
+    	}
+    	
+    	@media ( max-width: $smartphone_portrait + px ) {
+    		width: auto;
+    	}
 	}
 
 	.o-header {
@@ -160,6 +183,10 @@
 			margin: 0 base(80);
 		}
 		
+		@media ( max-width: $tablet + 100px ) {
+			flex-wrap: wrap;
+		}
+		
 		@media ( max-width: $tablet + px ) {
 			padding: {
 				top: 30px;
@@ -169,6 +196,17 @@
 		
 		@media ( max-width: $tablet_portrait + px ) {
 			margin: 0 30px;
+		}
+		
+		@media ( max-width: $smartphone_portrait + px ) {
+			justify-content: flex-start;
+		}
+		
+		.o-lead {
+    		@media ( max-width: $smartphone_portrait + px ) {
+    			width: 100%;
+    			margin-bottom: .5em;
+    		}
 		}
 	}
 	
@@ -195,8 +233,22 @@
 			@media ( max-width: $tablet + px ) {
 				margin-bottom: .5em;
 			}
+			
+			a {
+        		font-weight: $bold;
+    		}
 		}
 	}
+	
+	.o-social {
+        @media ( min-width: $smartphone_portrait + px ) {
+        	margin: 0 0 0 auto;
+    	}
+    	
+    	@media ( max-width: $tablet + 100px ) {
+    		justify-content: flex-end;
+    	}
+    }
 	
 	.copyrights {
 		margin-bottom: 2em;

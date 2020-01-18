@@ -194,8 +194,9 @@ document.addEventListener('DOMContentLoaded',function() {
         
             var map = new googleMaps.Map(el, {
                 center: myLatLng,
-                styles: mapStyle,
-                zoom: 15
+                
+                zoom: 19,
+                //styles: mapStyle,
             })
             
 /*
