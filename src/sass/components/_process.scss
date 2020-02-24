@@ -1,5 +1,5 @@
 .c-process {
-	max-width: 1480px;	
+	//max-width: 1480px;	
 	
 	table {
 		color: white;;
@@ -143,7 +143,11 @@
 	
 	.o-lead {
 		&--1 {
-			color: black;
+    		
+    		.bg-black &  {
+        		color: white;
+    		}
+			//color: black;
 		}
 
 		&--3 {

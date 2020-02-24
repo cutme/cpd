@@ -4,7 +4,7 @@
 	@include z-index(welcome);
 	width: 100%;
 	min-height: 100vh;
-	background-color: black;
+	//background-color: black;
 	
 	.o-contactline {
 		@extend %abs;
@@ -22,6 +22,8 @@
 	
 	.o-container {
 		&__right {
+    		min-width: 0;
+
 			@media ( min-width: $base + 1px ) {
 				flex: 1;
 		    }

@@ -6,7 +6,9 @@
 		
 		&__slide {
 			@extend %flex;
-		    @extend %flex-y;
+			@extend %flex-column;
+//		    @extend %flex-x;
+	        justify-content: space-around;
 			background: {
 				size: cover;
 				position: right top;
@@ -30,19 +32,18 @@
     
     &__text {
 	    max-width: 640px;
-	    padding-left: 80px;
+	    margin-left: 220px;
 	    
-	    @media ( min-width: $smartphone + 1px ) and ( max-width: $base + px ) {
-			padding-left: base(80);
-		}
+	    @media (max-width: $base + px) {
+            margin-left: grid(220);
+        }
 	    
-	    @media ( max-width: $base + px ) {
-		    width: base(640);
+	    @media ( max-width: $tablet + px ) {
+    	    margin-left: 30px;
 	    }
 	    
 	    @media ( max-width: $tablet_portrait + px ) {
 		    width: tablet_portrait(440);
-		    padding-left: 30px;
 	    }
 	    
 	    color: white;
@@ -59,20 +60,20 @@
 	    .first {
 		    line-height: 1.0em;
 		    font: {
-			    size: rem(80);
+			    size: rem(70);
 			    weight: $black;
 			}
 			
 			@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
-				font-size: base(80);
+				font-size: base(70);
 			}
 			
 			@media ( max-width: $tablet + px ) {
-				font-size: tablet(40);	
+				font-size: tablet(30);	
 			}
 			
 			@media ( max-width: $smartphone + px ) {
-				font-size: rem(25);
+				font-size: rem(22);
 			}
 	    }
 
@@ -80,28 +81,32 @@
 		    margin-bottom: 1em;
 		    line-height: 1.25em;
 		    font: {
-			    size: rem(53);
+			    size: rem(43);
 			    weight: $semibold;
 			}
 			
 			@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
-				font-size: base(53);
+				font-size: base(43);
 			}
 			
+/*
 			@media ( max-width: $tablet + px ) {
-				font-size: rem(26);	
+				font-size: rem(22);	
 			}
+*/
 			
 			@media ( max-width: $tablet + px ) {
-				font-size: tablet(26);	
+				font-size: tablet(18);	
 			}
 			
 			@media ( max-width: $smartphone + px ) {
-				font-size: rem(17);
+				font-size: rem(16);
 			}
 	    }
 	    
 	    .third {
+    	    max-width: 200px;
+/*
 		    line-height: 2.35em;
 			font-weight: $bold;
 			
@@ -120,11 +125,42 @@
 			@media ( max-width: $smartphone + px ) {
 				font-size: rem(10);
 			}
+*/
 			
 			.glide & {
                 opacity: 0;
                 transform: translate3d(0, 50px, 0);
             }
+	    }
+    }
+    
+    .o-logo {
+        margin-left: 220px;
+        opacity: 0;
+        transform: translate3d(0, -50px, 0);
+        
+        @media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
+			//width: base(250);
+		}
+
+		@media ( max-width: $tablet + px ) {
+			width: tablet(250);	
+		}
+		
+		@media ( max-width: $smartphone + px ) {
+			width: 200px;
+		}
+		
+		@media ( max-width: $smartphone_portrait + px ) {
+			width: 150px;
+		}
+	    
+	    @media (max-width: $base + px) {
+            margin-left: grid(220);
+        }
+	    
+	    @media ( max-width: $tablet + px ) {
+    	    margin-left: 30px;
 	    }
     }
 }

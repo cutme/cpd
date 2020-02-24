@@ -1,8 +1,23 @@
 .c-footer {
-	min-height: 100vh;
+	//min-height: 100vh;
 	background-color: black;
 	overflow: hidden;
 	color: white;
+	
+    max-width: 1920px;
+    padding-left: 220px;
+    padding-right: 220px;
+    
+    @media (max-width: 1920px) {
+        padding-left: 11.45833%;
+    padding-right: 11.45833%;
+    }
+    
+    @media (max-width: 1024px) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
 	
 	a {
 		&:hover {
@@ -67,19 +82,23 @@
 	}
 	
 	&__opening {
+/*
 		padding-left: 80px;
 		
 		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
 			padding-left: base(80);
 		}
 		
-		@media ( max-width: $tablet + px ) {
-			padding-top: 25px;
-		}
-	
+*/
+
+        @media ( max-width: $smartphone + px ) {
+    		padding-top: 25px;
+    	}
+/*
 		@media ( max-width: $tablet_portrait + px ) {
 			padding-left: 30px;
 		}	
+*/
 	}
 	
 	.o-cols {
@@ -96,10 +115,10 @@
 		}
 
 		&__item {
-			
+			margin-bottom: 20px;
+
 			@media ( max-width: $tablet + px ) {
-				width: 50%;
-				margin: 0;
+				width: 100%;
 			}
 			
 			@media ( max-width: $smartphone + px ) {
@@ -109,34 +128,38 @@
 			    	right: 0;
 		    	}
 		    }
-		    
-			&:first-of-type {
-				padding-left: 80px;
-
-				@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
-					padding-left: base(80);
-				}
 			
-				@media ( max-width: $tablet_portrait + px ) {
-					padding-left: 30px;
-				}	
-			}
-			
+/*
 			&:nth-of-type(2) {
 				@media ( max-width: $smartphone + px ) {
 					padding-left: 30px;
 				}
 			}
+*/
+			
+			&:first-of-type {
+                
+                @media ( min-width: $smartphone + 1px ) {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                
+                @media ( min-width: $tablet + px ) {
+                	flex-direction: column;
+                }
+			}
 			
 			&:last-of-type {
 				@media ( max-width: $tablet + px ) {
 					width: 100%;
-					padding-left: base(80);
+				//	padding-left: base(80);
 				}
 				
-				@media ( max-width: $tablet_portrait + px ) {
+				/*
+@media ( max-width: $tablet_portrait + px ) {
 					padding-left: 30px;
 				}
+*/
 			}
 			
 			&:nth-of-type(1),
@@ -176,12 +199,7 @@
 		@extend %flex;
 		@extend %flex-spacebetween;
 		@extend %flex-y;
-		margin: 0 80px;
 		border-bottom: 1px solid rgba(white, .15);
-		
-		@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
-			margin: 0 base(80);
-		}
 		
 		@media ( max-width: $tablet + 100px ) {
 			flex-wrap: wrap;
@@ -195,7 +213,7 @@
 		}
 		
 		@media ( max-width: $tablet_portrait + px ) {
-			margin: 0 30px;
+			//margin: 0 30px;
 		}
 		
 		@media ( max-width: $smartphone_portrait + px ) {
@@ -214,16 +232,7 @@
 		color: white;
 		
 		&--4 {
-			margin-bottom: 2em;
-			padding-left: 80px;
-			
-			@media ( min-width: $tablet_portrait + 1px ) and ( max-width: $base + px ) {
-				padding-left: base(80);
-			}
-			
-			@media ( max-width: $tablet_portrait + px ) {
-				padding-left: 30px;
-			}
+			margin-bottom: 2em;			
 		}
 		
 		&--6 {

@@ -42,6 +42,7 @@
     "dependencies": {
         "@glidejs/glide": "^3.4.1",
         "autoprefixer": "^9.5.0",
+        "blazy": "^1.8.2",
         "cssnano": "^4.1.10",
         "detect-browser": "^4.6.0",
         "ejs-compiled-loader": "^1.1.0",
@@ -52,6 +53,7 @@
         "postcss-cli": "^5.0.0",
         "siema": "^1.5.1",
         "stickybits": "^3.6.7",
+        "terser-webpack-plugin": "^2.3.3",
         "uglifyjs-webpack-plugin": "^2.1.1",
         "webfontloader": "^1.6.28"
     },

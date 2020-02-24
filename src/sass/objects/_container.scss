@@ -2,6 +2,7 @@
 	@extend %flex;
 	@extend %flex-wrap;
 	overflow: hidden;
+/*
 
 	&__left {
 		transition: background-color 500ms ease-out;
@@ -81,13 +82,14 @@
 		}
 	}
 	
+*/
 	&__right {
 		@extend %anim;
 		@extend %rel;
 		@include z-index(homecarousel);
-		
-		width: 1550px;
+		//width: 1550px;
 		height: 100%;
+		background-size: cover;
 		
 		&:after {
 			@extend %abs;
@@ -101,27 +103,33 @@
 		}
 		
 		@media ( min-width: $base + 1px ) {
-			margin-left: 370px;
+    		width: 1920px;
+			//margin-left: 370px;
+	    }
+	    
+	    @media ( max-width: $base + px ) {
+    	    width: 100%;
+	        flex: 1;
 	    }
 
 	    @media ( min-width: $desktop + 1px ) and ( max-width: $base + px ) {
-		    width: grid(1550);
-		    margin-left: grid(370);
+		    //width: grid(1550);
+		    //margin-left: grid(370);
 	    }
 	
 	    @media ( max-width: $desktop + px ) {
-		    width: calc(100% - 246px);
-		    margin-left: 246px;
+		    //width: calc(100% - 246px);
+		    //margin-left: 246px;
 	    }
 	    
 	    @media ( max-width: $tablet_portrait + px ) {
-		    width: calc(100% - 146px);
-		    margin-left: 146px;
+		    //width: calc(100% - 146px);
+		    //margin-left: 146px;
 	    }
 	    
 	    @media ( max-width: $smartphone_portrait + px ) {
-		    width: calc(100% - 50px);
-		    margin-left: 50px;
+		    //width: calc(100% - 50px);
+		    //margin-left: 50px;
 			transition: all 500ms ease-out;
 		}
 		
@@ -155,13 +163,13 @@
 		}
 	}
 	
-	.bg-black {
+	&.bg-black {
 		.o-article, h1 {
 			color: white;
 		}
 	}
 	
-	.bg-white {
+	&.bg-white {
 		background-color: white;
 			    
 	    .o-lead {

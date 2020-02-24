@@ -7,14 +7,23 @@
     &__slide {
         
         &--active {
+            
+            .o-logo {
+                transition: all 600ms ease-out;
+                transition-delay: 300ms;
+                opacity: 1 !important;
+                transform: translate3d(0, 0, 0) !important;
+            }
+            
             .c-homecarousel {
             	&__text {
 	                .first,
 	                .second,
-	                .third {
+	                .third,
+	                .o-logo {
 	                    transition: all 600ms ease-out;
 	                }
-	                               
+           
 	                .second {
 	                    transition-delay: 400ms;
 	                }
@@ -24,7 +33,7 @@
 	                }
 	            
 	                .first,
-	                .second, .third {
+	                .second, .third, .o-logo {
 	                    opacity: 1 !important;
 	                    transform: translate3d(0, 0, 0) !important;
 	                }

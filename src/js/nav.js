@@ -14,12 +14,10 @@ document.addEventListener('DOMContentLoaded',function() {
           social = document.getElementById('social');
 */
           
-    const sidenav = document.getElementsByClassName('js-sidenav'),
+    const sidebar = document.getElementsByClassName('js-sidebar')[0],
           hamburger = document.getElementsByClassName('js-hamburger')[0];
           
     const columnRight = document.getElementsByClassName('js-rightColumn'),
-    	  columnLeft = document.getElementsByClassName('js-leftColumn'),
-          bigarrow = document.getElementsByClassName('js-bigarrow')[0],
           sideMenu = document.getElementById('sideMenu'),
           sideMenuSections = document.getElementById('sideMenuSections'),
           closeSideMenu = sideMenu.getElementsByClassName('js-closeNav');
@@ -43,24 +41,14 @@ document.addEventListener('DOMContentLoaded',function() {
 			for (let i = 0; i < columnRight.length; i++) {
 		        columnRight[i].classList.remove('move-right');
 	        }
-	        
-	        for (let i = 0; i < columnLeft.length; i++) {
-		        columnLeft[i].classList.remove('move-right');
-	        }
-	        
-	        bigarrow.classList.remove('move-right');
+
 		};
 		
 		const showCols = function() {
 			for (let i = 0; i < columnRight.length; i++) {
 		        columnRight[i].classList.add('move-right');
 	        }
-	        
-	        for (let i = 0; i < columnLeft.length; i++) {
-		        columnLeft[i].classList.add('move-right');
-	        }
-	        
-	        bigarrow.classList.add('move-right');
+
 		};
 		
 		const hideSideMenu = function() {
@@ -75,9 +63,7 @@ document.addEventListener('DOMContentLoaded',function() {
 			
 			//const leftColumn = document.getElementsByClassName('js-leftColumn');
 			
-			for (let i = 0; i < columnLeft.length; i++) {
-				columnLeft[i].removeAttribute('style');
-			}
+
 
 			sideMenuSections.classList.remove('is-visible');	
 				
@@ -113,29 +99,17 @@ document.addEventListener('DOMContentLoaded',function() {
             //enableBodyScroll(el);
             //el.classList.remove('is-visible');
             
+/*
             for (let i = 0; i < sidenav.length; i++) {
                 sidenav[i].classList.remove('is-visible');
             }
-            
+*/
+  
+            sidebar.classList.remove('is-visible');          
             hamburger.classList.remove('is-active');
             hideCols();
             hideSideMenu();
 
-/*
-            for (let i = 0; i < nav.length; i ++) {
-                nav[i].classList.remove('is-active');
-            }
-
-            let parent = el.getElementsByClassName('menu-item-has-children');
-            
-            for (let i = 0; i < parent.length; i ++) {
-                parent[i].classList.remove('is-active');
-            }
-*/
-
-            //if (ww < 500) {
-            
-            //}
             
             window.removeEventListener('resize', cww);
         };
@@ -149,10 +123,14 @@ document.addEventListener('DOMContentLoaded',function() {
                 hideMenu();            
             
             } else {
+                
+                sidebar.classList.add('is-visible');
+                hamburger.classList.add('is-active');
             
                 //disableBodyScroll(el);
                 //el.classList.add('is-visible');
                 
+/*
                 for (let i = 0; i < sidenav.length; i++) {
                     sidenav[i].classList.add('is-visible');
                 }
@@ -162,6 +140,7 @@ document.addEventListener('DOMContentLoaded',function() {
                 if (ww <= 500) {
 	                showCols();
                 }
+*/
             }
             
             //cww = window.addEventListener('resize', checkWindowHeight);            
@@ -225,6 +204,6 @@ document.addEventListener('DOMContentLoaded',function() {
 
     };
 
-    sidenav ? init() : false;
+    sidebar ? init() : false;
 
 }, false);

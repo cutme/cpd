@@ -1,50 +1,49 @@
 .c-sidebar {
-	@extend %rel;
-	
-	.o-logo {
-		margin-bottom: 40px;
-		
-		.negative {
-			display: none;
-		}		
-		
-		.on-black {
-			display: none;
+  z-index: 90;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100%;
+  background-color: #000;
+  padding: 50px 20px 40px 40px;
+  -webkit-transform: translate3d(-150%, 0, 0);
+  transform: translate3d(-150%, 0, 0);
+  overflow: auto;
+}
 
-			.c-welcome & {
-				display: block;
-			}
-		}
-		
-		.on-white {
-			.c-welcome & {
-				display: none;
-			}
-		}
-	}
-	
-	.is-negative & {
-		.o-logo {
-			.normal,
-			.on-black,
-			.on-white {
-				display: none;
-			}
-			.negative {
-				display: block;
-			}
-		}
-		
-		.c-sidenav {
-			a {
-				color: black;
-			}
-			
-			li {
-				&:before {
-					color: black;
-				}
-			}
-		}
-	}
+@media (max-width: 1024px) {
+  .c-sidebar {
+    width: 200px;
+    padding: 50px 20px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .c-sidebar {
+    width: 120px;
+    padding: 50px 10px 40px;
+  }
+}
+
+.is-loaded .c-sidebar {
+  -webkit-transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.c-sidebar {
+  &.is-visible {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .o-logo {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .c-sidebar .o-logo {
+    margin-bottom: 20px;
+  }
 }

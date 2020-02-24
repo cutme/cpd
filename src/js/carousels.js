@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded',function() {
     const homeCarousel = function() {
 
         const glide = new Glide(home, {
-            type: 'carousel',
             animationDuration: 1000,
-            autoplay: 6000,
+            autoplay: false,
+            dragThreshold: false,
             hoverpause: false,
             gap: 0
         })

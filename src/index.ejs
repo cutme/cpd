@@ -1,23 +1,14 @@
 <% include ./src/includes/head %>
 <body>
 
-	<main class="o-container">
-		
-		<% include ./src/includes/welcome %>
+	<main class="o-container bg-black">
 
-		<div class="o-container__left o-container__left--floating js-leftColumn">
-			<% include ./src/includes/sidebar %>
-		</div>
+		<% include ./src/includes/welcome %>
 		
-		<div class="o-container__right js-rightColumn">
-			<% include ./src/includes/improve %>
-			<% include ./src/includes/pages %>
-			<% include ./src/includes/references %>
-			<% include ./src/includes/blog %>
-			<% include ./src/includes/footer %>
-		</div>		
 	</main>
 	
+	<% include ./src/includes/footer %>
+	<% include ./src/includes/sidebar %>
 	<% include ./src/includes/sidemenu %>
 	<% include ./src/includes/nav %>
 

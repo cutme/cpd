@@ -11,7 +11,7 @@ require('./js/ismobile.js');
 require('./js/map.js');
 require('./js/nav.js');
 require('./js/sidemenu.js');
-
+require('./js/blazy.js');
 
 //require('./js/fixel.js');
 //require('./js/scrollpos.js');

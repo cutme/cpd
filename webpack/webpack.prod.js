@@ -9,7 +9,8 @@ const happyThreadPool = HappyPack.ThreadPool({ size: 5 });
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+//const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 console.log(process.env.NODE_ENV);
 
@@ -89,16 +90,8 @@ module.exports = {
     ]),
 	
 	optimization: {
-	    minimizer: [
-          new UglifyJsPlugin({
-            uglifyOptions: {
-              output: {
-                comments: false
-              }
-            }
-          })
-        ],
-	    minimize: false,
+	    minimize: true,
+	    minimizer: [new TerserPlugin()],
         namedModules: true, // NamedModulesPlugin()
         noEmitOnErrors: true, // NoEmitOnErrorsPlugin
         concatenateModules: true //ModuleConcatenationPlugin

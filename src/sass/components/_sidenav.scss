@@ -1,24 +1,73 @@
 .c-sidenav {
-	transform: translate3d(-150%, 0, 0);
-	
-	.is-loaded & {
-    	transition: all .5s ease-out;
-	}
-	
-	&.is-visible {
-		transform: translate3d(0, 0, 0);
-	}
 
-	.copy {
-		color: $c-red;
-/*
+    li {
+        @extend %rel;
+        cursor: pointer;
 
-		&:before {
-			color: $c-red;
-			content: "\e904";
+		@media ( max-width: $tablet + px ) {
+//            line-height: 1.2em;
+            margin-bottom: 5px;
 		}
 		
-*/
+		@media ( max-width: $tablet_portrait + px ) {
+			//margin-bottom: 0;
+		}
+	
+		&.item-active {
+			a {
+				color: white !important;				
+			}
+			
+			&:before {
+				color: white !important;
+			}
+		}
+		
+        font: {
+			size: rem(20);
+			weight: $bold;
+		}
+		color: white;
+		
+		&.category {
+    		padding-left: 20px;
+    		
+    		
+    		@media (max-width: 768px) {
+                padding-left: 10px;
+            }
+		}
+		
+		ul {
+    		display: none;
+    		
+    		li {
+        		padding-left: 20px;
+    		
+        		@media (max-width: 768px) {
+                    padding-left: 10px;
+                }
+    		}
+		}
+		
+		a {
+    		line-height: 1.2em;
+
+    		@media ( max-width: $desktop + px ) {
+    			line-height: 1em;
+    		}
+		}
+		
+		&.is-active {
+            ul {
+                display: block;
+            }
+		}
+    }
+    
+	.copy {
+		color: $c-red;
+		
 		&:hover {
 			a {
 				color: $c-red;
@@ -28,14 +77,7 @@
 	
 	.finishing {
 		color: $c-green;
-/*
 
-		&:before {
-			color: $c-green;
-			content: "\e909";
-		}
-		
-*/
 		&:hover {
 			a {
 				color: $c-green;
@@ -45,14 +87,7 @@
 	
 	.large-format {
 		color: $c-orange;
-		/*
 
-		&:before {
-			color: $c-orange;
-			content: "\e90b";
-		}
-		
-*/
 		&:hover {
 			a {
 				color: $c-orange;
@@ -62,14 +97,7 @@
 	
 	.print {
 		color: $c-yellow;
-/*
-		
-		&:before {
-			color: $c-yellow;
-			content: "\e90e";
-		}
-		
-*/
+
 		&:hover {
 			a {
 				color: $c-yellow;
@@ -104,11 +132,19 @@
     	}
 	}
 	
-	a {
-		font: {
-			size: rem(20);
-			weight: $bold;
+	.static {
+    	@media ( max-width: $tablet + px ) {
+        	margin-top: 5px;
+			font-size: rem(16);
 		}
+
+		@media (max-width: 768px) {
+            font-size: .8125rem;
+        }
+	}
+	
+	a {
+    	display: inline-block;
 		color: white;
 		
 		.o-container__left--floating & {
@@ -118,82 +154,15 @@
 		}
 		
 		@media ( min-width: $tablet + 1px ) and ( max-width: $base + px ) {
-			size: base(20);
+			//font-size: base(20);
 		}
 		
 		@media ( max-width: $tablet + px ) {
 			font-size: rem(16);
 		}
 		
-		@media ( max-width: $tablet_portrait + px ) {
-//			font-size: rem(12);
-		}
-	}
-	
-	li {
-		@extend %rel;
-		@extend %flex;
-		@extend %flex-y;
-		max-height: 64px;
-		height: base(64);
-		//padding-left: grid(60, 260);
-		cursor: pointer;
-		
-		/*
-@media ( min-width: $base + 1px ) {
-			padding-left: 60px;
-		}
-*/
-		
-		/*
-@media ( min-width: $desktop + 1px ) {
-			min-height: 64px;
-		}
-		
-*/
-/*
-		@media ( max-width: $desktop + px ) {
-			height: 64px;
-			padding-left: 40px;
-		}
-		
-*/
-		@media ( max-width: $tablet + px ) {
-			//height: 54px;
-			//padding-left: 30px;
-			//height: 24px;
-			
-			height: auto;
-            line-height: 1.2em;
-            margin-bottom: 15px;
-		}
-		
-/*
-		&:before {
-			@extend %abs;
-			@extend %abs-after;
-			@extend %abs-y;
-			left: 0;
-			font: {
-				family: $icomoon;
-				size: base(36);
-				weight: normal;
-			}
-			
-			@media ( max-width: $desktop + px ) {
-				font-size: rem(24);
-			}
-		}
-*/
-		
-		&.item-active {
-			a {
-				color: white !important;				
-			}
-			
-			&:before {
-				color: white !important;
-			}
-		}
+		@media (max-width: 768px) {
+            font-size: .8125rem;
+        }
 	}
 }

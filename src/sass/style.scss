@@ -4,7 +4,7 @@
 @import 'tools/clear';
 @import 'tools/functions';
 @import 'tools/mixins';
-//@import 'tools/blazy';
+@import 'tools/blazy';
 //@import 'tools/custom-select';
 @import 'tools/glide';
 //@import 'tools/glightbox';
@@ -22,7 +22,7 @@
 @import 'elements/typography';
 
 @import 'objects/article';
-@import 'objects/bigarrow';
+//@import 'objects/bigarrow';
 @import 'objects/btn';
 @import 'objects/cols';
 @import 'objects/container';
@@ -41,6 +41,7 @@
 @import 'components/boxes';
 @import 'components/contactform';
 @import 'components/footer';
+@import 'components/grid';
 @import 'components/homecarousel';
 @import 'components/improve';
 @import 'components/map';
